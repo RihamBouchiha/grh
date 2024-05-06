@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="vol" id="386042D2-A5A6-7B2B-1EEF-513365ACA9B9" version="3.5">
+<createdBy>RIHAM</createdBy>
+<createdTime>2024-02-23 08:47:16 UTC</createdTime>
+<ownerDesignName>vol</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>386042D2-A5A6-7B2B-1EEF-513365ACA9B9</designId>
+</OSDM_Design>
