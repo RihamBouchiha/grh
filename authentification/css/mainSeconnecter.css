@@ -1,0 +1,25 @@
+
+.button {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-primary {
+    background-color: #008080; 
+    color: white;
+  }
+  
+  .button-primary:hover {
+    background-color: #006666; 
+  }
+  .forgot-password-link:hover {
+    color: #4dc0b5;  
+  }
+  .signup-link:hover {
+    color: #4dc0b5; 
+}
