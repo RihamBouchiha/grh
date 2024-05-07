@@ -10,16 +10,24 @@
   }
   
   .button-primary {
-    background-color: #008080; 
+    background-color: #031640; 
     color: white;
   }
   
   .button-primary:hover {
-    background-color: #006666; 
+    background-color: #143d97; 
   }
   .forgot-password-link:hover {
     color: #4dc0b5;  
   }
   .signup-link:hover {
-    color: #4dc0b5; 
+    color: #143d97; 
+}
+.round-image {
+  border-radius: 50%; 
+  width: 60px; 
+  height: 60px; 
+}
+.custom-bg {
+  background-color: #F8F2E9; 
 }
