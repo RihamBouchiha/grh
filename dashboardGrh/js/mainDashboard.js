@@ -73,10 +73,24 @@ function toggleSidebar() {
     }
 }
 
-function toggleSidebar() {
+// Fonction pour afficher le sidebar
+function showSidebar() {
     var sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('show');
+    var mainContent = document.getElementById('main-content');
+    
+    sidebar.classList.remove('hidden');
+    mainContent.style.marginLeft = '64px'; // Rétablir la marge à gauche
 }
+
+// Fonction pour cacher le sidebar
+function hideSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    
+    sidebar.classList.add('hidden');
+    mainContent.style.marginLeft = '0'; // Réduire la marge à gauche
+}
+
 
 
 

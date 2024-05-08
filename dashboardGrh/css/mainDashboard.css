@@ -86,6 +86,7 @@
             transform: rotate(90deg);
         }
         .navbar button {
-            order: -1; /* Change l'ordre d'affichage du bouton */
+            order: -1; 
         }
-                
+               
+        
