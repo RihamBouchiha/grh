@@ -1,3 +1,91 @@
 #userAccountDropdown {
     color: black;
 }
+    
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .navbar {
+            background-color: #27343C;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar img {
+            height: 40px;
+            width: auto;
+        }
+
+        .sidebar {
+            background-color: #36404A;
+            color: #FFFFFF;
+            width: 250px;
+            height: 100vh;
+            position: absolute;
+            top: 60px; 
+            left: 0;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar.show {
+            left: 0;
+        }
+
+        .sidebar .logo {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #465260;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #465260;
+        }
+
+        .sidebar ul li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+    
+        .submenu {
+            display: none;
+        }
+        
+        .submenu.show {
+            display: block;
+        }
+        
+        .arrow {
+            margin-left: 5px;
+        }
+        
+        .rotated {
+            transform: rotate(90deg);
+        }
+        .navbar button {
+            order: -1; /* Change l'ordre d'affichage du bouton */
+        }
+                

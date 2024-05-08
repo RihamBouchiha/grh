@@ -14,3 +14,69 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+//enlever la barre
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    if (sidebar.style.display === 'none') {
+        sidebar.style.display = 'block';
+        mainContent.style.marginLeft = '64px'; 
+    } else {
+        sidebar.style.display = 'none';
+        mainContent.style.marginLeft = '0'; 
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    var toggleButtons = document.querySelectorAll('.toggle-submenu');
+
+    toggleButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var submenu = this.nextElementSibling;
+            submenu.classList.toggle('show');
+            this.querySelector('.arrow').classList.toggle('rotated');
+        });
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var toggleButtons = document.querySelectorAll('.toggle-submenu');
+
+    toggleButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var submenu = this.nextElementSibling;
+            submenu.classList.toggle('hidden');
+            var arrow = this.querySelector('.arrow i');
+            arrow.classList.toggle('fa-chevron-right');
+            arrow.classList.toggle('fa-chevron-down');
+        });
+    });
+});
+
+
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    
+    // Vérifie si le sidebar est actuellement affiché ou non
+    var isSidebarVisible = !sidebar.classList.contains('hidden');
+    
+    // Si le sidebar est actuellement visible, alors cache-le, sinon affiche-le
+    if (isSidebarVisible) {
+        sidebar.classList.add('hidden');
+        mainContent.style.marginLeft = '0'; // Réduire la marge à gauche
+    } else {
+        sidebar.classList.remove('hidden');
+        mainContent.style.marginLeft = '64px'; // Rétablir la marge à gauche
+    }
+}
+
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+}
+
+
+

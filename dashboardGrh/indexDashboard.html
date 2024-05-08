@@ -6,48 +6,38 @@
     <title>Tableau de bord</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/mainDashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <link rel="icon" type="image/png" href="chemin/vers/votre/logo.png">
     <script src="js/mainDashboard.js"></script>
+    
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4 flex justify-between items-center">
-        <div class="flex items-center space-x-2">
-            <!-- Logo et nom de l'application -->
-            <img src="img/image.png" alt="Logo" class="h-8 w-auto">
-            <span class="text-white text-xl font-bold ml-2">GUSTO RH</span>
-        </div>
-        <div class="text-white">
-            <button id="userAccountBtn" class="flex items-center space-x-2 relative">
-                <img src="img/image.png" alt="Avatar" class="h-8 w-8 rounded-full">
-                <span>Nom Utilisateur</span>
-                <div id="userAccountDropdown" class="hidden absolute bg-white top-full right-0 mt-2 p-2 shadow-md rounded-md">
-                    <p>Adresse email: rihambouchiha@gmail.com</p>
-                </div>
-            </button>
-        </div>
-    </nav>
-    
-    <div class="bg-gray-200 h-screen w-64 fixed top-0 left-0 shadow-md">
-        <div class="p-4">
-            <input type="text" placeholder="Rechercher" class="w-full rounded-md p-2 mb-4">
-            <ul>
-                <li><a href="#" class="block">Accueil</a></li>
-                <li><a href="#" class="block">Bla</a></li>
-                <li><a href="#" class="block">Blla</a></li>
-                <li><a href="#" class="block">Bllla</a></li>
-                <li class="mt-4">Employé</li>
-                <ul class="ml-4">
-                    <li><a href="#" class="block">Salaire</a></li>
-                    <li><a href="#" class="block">Congé</a></li>
-                </ul>
-            </ul>
-        </div>
+    <div class="navbar flex items-center justify-between px-4 py-2 bg-gray-800 text-white">
+        <button onclick="toggleSidebar()" class="text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+            </svg>
+        </button>
+        <img src="img/image.png" alt="Logo">
     </div>
+    
 
-    <!-- Contenu principal -->
-    <div class="ml-64">
-        <!-- Contenu principal ici -->
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li class="parent-item">
+                <a href="#" class="flex items-center justify-between toggle-submenu">Bla <span class="arrow"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="submenu">
+                    <li><a href="#">Blla</a></li>
+                    <li><a href="#">Bllla</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Employé</a></li>
+            <li><a href="#">Salaire</a></li>
+            <li><a href="#">Congé</a></li>
+        </ul>
     </div>
 </body>
 </html>
