@@ -1,21 +1,55 @@
-const body = document.querySelector("body"),
-      sidebar = body.querySelector(".sidebar"),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+let sideMenu = document.querySelectorAll(".nav-link");
+sideMenu.forEach((item) => {
+  let li = item.parentElement;
 
-      toggle.addEventListener("click",()=>{
-        sidebar.classList.toggle("close");
-      })
+  item.addEventListener("click", () => {
+    sideMenu.forEach((link) => {
+      link.parentElement.classList.remove("active");
+    });
+    li.classList.add("active");
+  });
+});
 
-      modeSwitch.addEventListener("click",()=>{
-        body.classList.toggle("dark");
-      })
+let menuBar = document.querySelector(".menu-btn");
+let sideBar = document.querySelector(".sidebar");
+menuBar.addEventListener("click", () => {
+  sideBar.classList.toggle("hide");
+});
 
+let switchMode = document.getElementById("switch-mode");
+switchMode.addEventListener("change", (e) => {
+  if (e.target.checked) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+});
 
-      function toggleUserInfo() {
-        const userDetails = document.getElementById('userDetails');
-        userDetails.classList.toggle('active');
+let searchFrom = document.querySelector(".content nav form");
+let searchBtn = document.querySelector(".search-btn");
+let searchIcon = document.querySelector(".search-icon");
+searchBtn.addEventListener("click", (e) => {
+  if (window.innerWidth < 576) {
+    e.preventDefault();
+    searchFrom.classList.toggle("show");
+    if (searchFrom.classList.contains("show")) {
+      searchIcon.classList.replace("fa-search", "fa-times");
+    } else {
+      searchIcon.classList.replace("fa-times", "fa-search");
     }
-    
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 576) {
+    searchIcon.classList.replace("fa-times", "fa-search");
+    searchFrom.classList.remove("show");
+  }
+  if (window.innerWidth < 768) {
+    sideBar.classList.add("hide");
+  }
+});
+
+if (window.innerWidth < 768) {
+  sideBar.classList.add("hide");
+}
