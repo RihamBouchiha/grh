@@ -14,11 +14,11 @@
   --lato: "Lato", sans-serif;
 
   --light: #f9f9f9;
-  --blue: #031640;
+  --blue: #0f42ae;
   --light-blue: #cfe8ff;
   --grey: #eee;
   --dark-grey: #aaaaaa;
-  --dark: #97375D;
+  --dark: #000000;
   --red: #EE4C4B;
   --yellow: #FFAA2E;
   --light-yellow: #fff2c6;
@@ -621,9 +621,10 @@ body.dark {
 }
 
 .image-text img {
-    width: 59px;
+    width: 50px;
     border-radius: 31px;
     margin-top: 10px;
+    margin-right: 15px;
     
 
 }
