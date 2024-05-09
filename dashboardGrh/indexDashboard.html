@@ -13,14 +13,21 @@
     
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <div class="navbar flex items-center justify-between px-4 py-2 bg-gray-800 text-white">
-        <button onclick="toggleSidebar()" class="text-white">
+    <div class="navbar flex items-center">
+        <!-- Logo et nom "GUSTO RH" -->
+        <div class="flex items-center mr-4">
+            <img src="votre-logo.png" class="h-6 mr-2">
+            <span class="text-xl font-bold">GUSTO RH</span>
+        </div>
+        <!-- Bouton de menu -->
+        <button onclick="toggleSidebar()" class="menu-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
             </svg>
         </button>
-        <img src="img/image.png" alt="Logo">
     </div>
+    
+    
     
 
     <!-- Sidebar -->

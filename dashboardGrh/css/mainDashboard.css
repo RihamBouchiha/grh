@@ -88,5 +88,43 @@
         .navbar button {
             order: -1; 
         }
-               
-        
+             /* Ajoute cet élément à la fin de ton fichier CSS */
+
+/* Style pour le survol des traits de menu */
+.navbar button:hover svg {
+    stroke: #CBD5E0; /* Couleur gris pour le survol */
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: #4B5563; /* bg-gray-800 */
+    color: #fff; /* text-white */
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem; /* w-12 */
+    height: 3rem; /* h-12 */
+    background-color: #4B5563; /* bg-gray-800 */
+    border-radius: 0.375rem; /* rounded-lg */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+    background-color: #374151; /* hover:bg-gray-700 */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 1.5rem; /* h-6 */
+    margin-right: 0.5rem; /* mr-2 */
+}
+   
