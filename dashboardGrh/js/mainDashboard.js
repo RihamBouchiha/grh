@@ -14,3 +14,8 @@ const body = document.querySelector("body"),
       })
 
 
+      function toggleUserInfo() {
+        const userDetails = document.getElementById('userDetails');
+        userDetails.classList.toggle('active');
+    }
+    

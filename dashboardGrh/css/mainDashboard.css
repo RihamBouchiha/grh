@@ -243,3 +243,71 @@ body.dark .switch::before{
     left: 24px;
 
 }
+
+/*finir le travail de sidebar*/
+/*
+.user-info {
+    display: flex;
+    align-items: center;
+}
+.user-info .avatar {
+    margin-right: 10px; 
+}
+.image-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.user-details {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+
+.user-details.active {
+    display: block;
+}
+
+.email {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.user-actions {
+    list-style: none;
+    padding: 0;
+}
+
+.user-actions li {
+    margin-bottom: 5px;
+}
+
+.user-actions li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.user-actions li a:hover {
+    text-decoration: underline;
+}
+
+.user-section {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
