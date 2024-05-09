@@ -1,51 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/mainDashboard.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-    <link rel="icon" type="image/png" href="chemin/vers/votre/logo.png">
-    <script src="js/mainDashboard.js"></script>
-    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <div class="navbar flex items-center">
-        <!-- Logo et nom "GUSTO RH" -->
-        <div class="flex items-center mr-4">
-            <img src="votre-logo.png" class="h-6 mr-2">
-            <span class="text-xl font-bold">GUSTO RH</span>
+<body>
+   <nav class="sidebar">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="img/image.png" alt="logo">
+            </span>
+            <div class="text headr-text">
+                <span class="name">GUSTO </span>
+                <span class="profession">RH</span>
+            </div>
         </div>
-        <!-- Bouton de menu -->
-        <button onclick="toggleSidebar()" class="menu-button">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
-            </svg>
-        </button>
-    </div>
-    
-    
-    
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i> Accueil</a></li>
-            <li class="parent-item">
-                <a href="#" class="flex items-center justify-between toggle-submenu"><i class="fas fa-book"></i> Bla <span class="arrow"><i class="fas fa-chevron-down"></i></span></a>
-                <ul class="submenu">
-                    <li><a href="#">Blla</a></li>
-                    <li><a href="#">Bllla</a></li>
-                </ul>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+            <li class="nav-link">
+            
+                <i class='bx bx-search-alt icon'></i>
+                    <input type="search" placeholder="Rechercher...">
+                
             </li>
-            <li><a href="#"><i class="fas fa-user"></i> Employé</a></li>
-            <li><a href="#"><i class="fas fa-money-bill"></i> Salaire</a></li>
-            <li><a href="#"><i class="fas fa-calendar"></i> Congé</a></li>
-        </ul>
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-home-smile icon'></i>
+                        <span class="text nav-text">Accueil</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    
+
+   </nav>
 </body>
 </html>
