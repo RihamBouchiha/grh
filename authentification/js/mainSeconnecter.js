@@ -22,14 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Données enregistrées avec succès :', data);
-                // Vous pouvez ajouter ici un code pour rediriger l'utilisateur ou afficher un message de succès
             } else {
                 console.error('Erreur lors de l\'enregistrement des données');
-                // Vous pouvez ajouter ici un code pour afficher un message d'erreur à l'utilisateur
             }
         } catch (error) {
             console.error('Erreur lors de la requête :', error);
-            // Vous pouvez ajouter ici un code pour afficher un message d'erreur à l'utilisateur
         }
     });
 });
