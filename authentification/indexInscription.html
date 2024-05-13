@@ -7,6 +7,8 @@
     
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.13/build/css/intlTelInput.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     
     <link rel="stylesheet" href="css/mainInscription.css">
     <link rel="website icon" type="png" href="img/Colorful Creative Growth Concept Logo.png">
@@ -52,15 +54,49 @@
                             <div class="w-full">
                                 <label for="nationality" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nationalité</label>
                                 <select name="nationality" id="nationality" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Albania">Albania</option>
-                                    <!-- Ajoutez d'autres options selon vos besoins -->
                                 </select>
                             </div>
+                            
                             <div class="w-full">
                                 <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numéro de téléphone</label>
-                                <input type="tel" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+1234567890" pattern="^\+(?:[0-9]●?){6,14}[0-9]$" required="">
+                                <div class="flex items-center">
+                                    <!-- Champ de code de pays -->
+                                    <input type="hidden" id="country_code" name="country_code">
+                                    <!-- Champ de numéro de téléphone -->
+                                    <input type="tel" id="phone_number" name="phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block flex-1 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1234567890" pattern="[0-9]{10,}" required>
+                                </div>
                             </div>
+                            
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.13/build/js/intlTelInput.min.js"></script>
+                            <script>
+                                // Initialisez le champ de numéro de téléphone avec la bibliothèque intlTelInput
+                                $("#phone_number").intlTelInput({
+                                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+                                    initialCountry: "auto",
+                                    separateDialCode: true,
+                                    dropdownContainer: document.body
+                                });
+                            </script>
+                            <script>
+                                // Initialisez le champ de numéro de téléphone avec la bibliothèque intlTelInput
+                                var input = document.querySelector("#country_code");
+                                var input2 = document.querySelector("#phone_number");
+                                window.intlTelInput(input, {
+                                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+                                    initialCountry: "auto",
+                                    separateDialCode: true,
+                                    dropdownContainer: document.body
+                                });
+                                window.intlTelInput(input2, {
+                                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+                                    initialCountry: "auto",
+                                    separateDialCode: true,
+                                    dropdownContainer: document.body
+                                });
+                            </script>
+                            
+                            
                         </div>
                         <div class="flex space-x-4">
                             <div class="w-full">
