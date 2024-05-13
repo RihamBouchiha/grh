@@ -36,8 +36,8 @@ body {
 }
 
 body.dark {
-  --light: #0c0c1e;
-  --grey: #060714;
+  --light: #101027;
+  --grey: #2e2f45;
   --dark: #fbfbfb;
 }
 
