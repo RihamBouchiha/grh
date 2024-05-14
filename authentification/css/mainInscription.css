@@ -1,13 +1,14 @@
-
 .button {
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  width: 50%;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+
   
   .button-primary {
     background-color: #031640; 
@@ -15,13 +16,11 @@
   }
   
   .button-primary:hover {
-    background-color: #143d97; 
-  }
-  .forgot-password-link:hover {
-    color: #4dc0b5;  
-  }
+    background-color: #28385b; 
+    }
+  
   .signup-link:hover {
-    color: #143d97; 
+    color: #031640; 
     transition: color 0.7s;
 }
 
