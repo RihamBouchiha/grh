@@ -1,4 +1,8 @@
-
+document.getElementById("inscriptionLink").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    window.location.href = "indexInscription.html"; 
+});
+                        
 
   
 document.addEventListener('DOMContentLoaded', () => {
