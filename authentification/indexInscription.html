@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    
-
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.13/build/css/intlTelInput.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/mainInscription.css">
     <link rel="website icon" type="png" href="img/Colorful Creative Growth Concept Logo.png">
-    <script src="js/mainInscription.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
 </head>
 <body>
     <section class="custom-bg min-h-screen flex flex-col justify-center items-center">
@@ -48,7 +53,6 @@
                                 <label for="birthdate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date de naissance</label>
                                 <input type="date" name="birthdate" id="birthdate" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Sélectionner une date" required>
                             </div>
-                            
                         </div>
                         <div class="flex space-x-4">
                             <div class="w-full">
@@ -56,47 +60,14 @@
                                 <select name="nationality" id="nationality" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                                 </select>
                             </div>
-                            
                             <div class="w-full">
                                 <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numéro de téléphone</label>
                                 <div class="flex items-center">
-                                    <!-- Champ de code de pays -->
                                     <input type="hidden" id="country_code" name="country_code">
                                     <!-- Champ de numéro de téléphone -->
                                     <input type="tel" id="phone_number" name="phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block flex-1 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1234567890" pattern="[0-9]{10,}" required>
                                 </div>
                             </div>
-                            
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                            <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.13/build/js/intlTelInput.min.js"></script>
-                            <script>
-                                // Initialisez le champ de numéro de téléphone avec la bibliothèque intlTelInput
-                                $("#phone_number").intlTelInput({
-                                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
-                                    initialCountry: "auto",
-                                    separateDialCode: true,
-                                    dropdownContainer: document.body
-                                });
-                            </script>
-                            <script>
-                                // Initialisez le champ de numéro de téléphone avec la bibliothèque intlTelInput
-                                var input = document.querySelector("#country_code");
-                                var input2 = document.querySelector("#phone_number");
-                                window.intlTelInput(input, {
-                                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
-                                    initialCountry: "auto",
-                                    separateDialCode: true,
-                                    dropdownContainer: document.body
-                                });
-                                window.intlTelInput(input2, {
-                                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
-                                    initialCountry: "auto",
-                                    separateDialCode: true,
-                                    dropdownContainer: document.body
-                                });
-                            </script>
-                            
-                            
                         </div>
                         <div class="flex space-x-4">
                             <div class="w-full">
@@ -118,7 +89,6 @@
                                 <input type="password" name="confirm_password" id="confirm_password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                             </div>
                         </div>
-                        
                         <div class="flex items-center justify-between">
                         </div>
                         <button type="submit" class="button button-primary">S'inscrire</button>
@@ -130,6 +100,23 @@
             </div>
         </div>
     </section>
-    
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'https://restcountries.com/v3.1/all',
+                dataType: 'json',
+                success: function(data) {
+                    data.sort(function(a, b) {
+                        if (a.name.common < b.name.common) return -1;
+                        if (a.name.common > b.name.common) return 1;
+                        return 0;
+                    });
+                    for (var i = 0; i < data.length; i++) {
+                        $('#nationality').append('<option value="' + data[i].name.common + '">' + data[i].name.common + '</option>');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

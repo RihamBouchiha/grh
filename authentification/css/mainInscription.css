@@ -22,7 +22,9 @@
   }
   .signup-link:hover {
     color: #143d97; 
+    transition: color 0.7s;
 }
+
 .round-image {
   border-radius: 50%; 
   width: 60px; 
