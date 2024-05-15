@@ -47,13 +47,15 @@ body.dark {
   left: 0;
   background: var(--light);
   height: 100%;
-  width: 280px;
+  width: 280px; 
+  min-width: 60px; 
   z-index: 2000;
   font-family: var(--lato);
   transition: 0.3s ease;
   overflow-x: hidden;
   scrollbar-width: none;
 }
+
 
 .sidebar.hide {
   width: 60px;

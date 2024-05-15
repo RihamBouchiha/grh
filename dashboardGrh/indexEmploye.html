@@ -8,9 +8,10 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="css/mainEmploye.css"/>
     <link rel="website icon" type="png" href="img/image.png">
-
   </head>
   <body>
     <section class="sidebar">
@@ -19,10 +20,9 @@
         <img src="img/image.png" alt="logo"></div>
         <span class="text">GUSTO RH</span>
       </a>
-
       <ul class="side-menu top">
         <li>
-          <a href="#" class="nav-link">
+          <a href="indexDashboard.html" class="nav-link">
             <i class="fa-solid fa-house"></i>
             <span class="text">Tableau de bord</span>
           </a>
@@ -34,35 +34,35 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link">
+          <a href="indexCondidat.html" class="nav-link">
             <i class="fa-solid fa-users"></i>            
             <span class="text">Gestion des candidats</span>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link">
+          <a href="indexPaie.html" class="nav-link">
             <i class="fa-solid fa-money-bill"></i>           
              <span class="text">Gestion de paie</span>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link">
+          <a href="indexRapport.html" class="nav-link">
             <i class="fa-solid fa-chart-pie"></i>
              <span class="text">Analyses et rapports</span>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link">
-            c
+          <a href="indexConge.html" class="nav-link">
+            <i class="fa-solid fa-business-time"></i>
              <span class="text">Gestion des congés</span>
           </a>
         </li>
       </ul>
-            <br><br><br><br><br><br><br>
+            <br><br><br><br><br><br>
             
       <ul class="side-menu">
         <li>
-          <a href="#">
+          <a href="indexParametres.html">
             <i class="fas fa-cog"></i>
             <span class="text">Paramètres</span>
           </a>
@@ -101,6 +101,7 @@
           <img src="profile.png" alt="" />
         </a>
       </nav>
+      
 
       <main>
         <div class="head-title">
@@ -116,11 +117,89 @@
               </li>
             </ul>
           </div>
+          <a href="#" class="download-btn">
+            <i class="fa-solid fa-plus"></i>            
+            <span class="text">Ajouter un employé</span>
+          </a>
+
+          <div class="container mt-4">
+    
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Genre</th>
+                  <th>Date de naissance</th>
+                  <th>Téléphone</th>
+                  <th>Adresse e-mail</th>
+                  <th>Poste</th>
+                  <th>Département</th>
+                  <th>Statut d'emploi</th>
+                  <th>Salaire</th>
+                  <th>NSS</th>
+                  <th>Modifier</th>
+                  <th>Supprimer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
+                  <td>Bouchiha</td>
+                  <td>Riham</td>
+                  <td>F</td>
+                  <td>20/06/2003</td>
+                  <td>0621580065</td>
+                  <td>rrrrr@gmail.com</td>
+                  <td>infor</td>
+                  <td>informatique</td>
+                  <td>Temps plein</td>
+                  <td>5000</td>
+                  <td>415522</td>
+                  <td><button class="btn btn-primary">Modifier</button></td>
+                  <td><button class="btn btn-danger">Supprimer</button></td>
+                </tr>
+                <tr>
+                    <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
+                    <td>Bouchiha</td>
+                    <td>Riham</td>
+                    <td>F</td>
+                    <td>20/06/2003</td>
+                    <td>0621580065</td>
+                    <td>rrrrr@gmail.com</td>
+                    <td>infor</td>
+                    <td>informatique</td>
+                    <td>Temps plein</td>
+                    <td>5000</td>
+                    <td>415522</td>
+                    <td><button class="btn btn-primary">Modifier</button></td>
+                    <td><button class="btn btn-danger">Supprimer</button></td>
+                  </tr>
+                  <tr>
+                    <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
+                    <td>Bouchiha</td>
+                    <td>Riham</td>
+                    <td>F</td>
+                    <td>20/06/2003</td>
+                    <td>0621580065</td>
+                    <td>rrrrr@gmail.com</td>
+                    <td>infor</td>
+                    <td>informatique</td>
+                    <td>Temps plein</td>
+                    <td>5000</td>
+                    <td>415522</td>
+                    <td><button class="btn btn-primary">Modifier</button></td>
+                    <td><button class="btn btn-danger">Supprimer</button></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
 
           
       </main>
     </section>
     <script src="js/mainEmploye.js"></script>
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
