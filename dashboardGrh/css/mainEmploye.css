@@ -60,6 +60,10 @@ body.dark {
 .sidebar.hide {
   width: 60px;
 }
+.sidebar .top .nav-link {
+  display: flex;
+}
+
 
 .sidebar::-webkit-scrollbar {
   display: none;
@@ -134,7 +138,6 @@ body.dark {
   width: 100%;
   background: var(--light);
   display: flex;
-  align-items: center;
   border-radius: 48px;
   font-size: 16px;
   color: var(--dark);
