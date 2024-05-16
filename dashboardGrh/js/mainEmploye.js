@@ -53,3 +53,38 @@ window.addEventListener("resize", () => {
 if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
+
+// Ajoutez une fonction pour traiter le formulaire lorsqu'il est soumis
+document.getElementById('employeeForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Empêche la soumission du formulaire
+
+  // Récupérez les valeurs des champs du formulaire
+  var id = document.getElementById('id').value;
+  var nom = document.getElementById('nom').value;
+  // Récupérez les autres valeurs de la même manière ...
+
+  // Créez une nouvelle ligne pour le tableau
+  var newRow = document.createElement('tr');
+  newRow.innerHTML = `
+    <td>${id}</td>
+    <td>${nom}</td>
+    <td>${document.getElementById('prenom').value}</td>
+    <td>${document.getElementById('genre').value}</td>
+    <td>${document.getElementById('dateNaissance').value}</td>
+    <td>${document.getElementById('telephone').value}</td>
+    <td>${document.getElementById('Adressee-mail').value}</td>
+    <td>${document.getElementById('Poste').value}</td>
+    <td>${document.getElementById('Departement').value}</td>
+    <td>${document.getElementById('Statutdemploi').value}</td>
+    <td>${document.getElementById('Salaire').value}</td>
+    <td>${document.getElementById('CNSS').value}</td>
+    <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
+    <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
+  `;
+
+  document.querySelector('tbody').appendChild(newRow);
+
+  $('#addEmployeeModal').modal('hide');
+
+  document.getElementById('employeeForm').reset();
+});

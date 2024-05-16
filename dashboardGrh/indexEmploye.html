@@ -5,11 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestion des employés</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/mainEmploye.css"/>
     <link rel="website icon" type="png" href="img/image.png">
   </head>
@@ -92,11 +90,9 @@
         </a>
 
         <a href="#" class="profile">
-          <img src="profile.png" alt="" />
+          <img src="img/3135715.png" alt="" />
         </a>
       </nav>
-      
-
       <main>
         <div class="head-title">
           <div class="left">
@@ -111,10 +107,11 @@
               </li>
             </ul>
           </div>
-          <a href="#" class="download-btn">
+          <a href="#" class="download-btn" data-toggle="modal" data-target="#addEmployeeModal">
             <i class="fa-solid fa-plus"></i>            
             <span class="text-btn">Ajouter un employé</span>
           </a>
+          
 
           <div class="container mt-4">
     
@@ -122,7 +119,6 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Photo</th>
                   <th>Nom</th>
                   <th>Prénom</th>
                   <th>Genre</th>
@@ -141,280 +137,6 @@
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
-                  <td>Bouchiha</td>
-                  <td>Riham</td>
-                  <td>F</td>
-                  <td>20/06/2003</td>
-                  <td>0621580065</td>
-                  <td>rrrrr@gmail.com</td>
-                  <td>infor</td>
-                  <td>informatique</td>
-                  <td>Temps plein</td>
-                  <td>5000</td>
-                  <td>415522</td>
-                  <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                  <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td><img src="photo1.jpg" alt="Photo" class="img-thumbnail" style="max-width: 100px;"></td>
                   <td>Bouchiha</td>
                   <td>Riham</td>
                   <td>F</td>
@@ -431,10 +153,115 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-
-          
+          </div>  
       </main>
+      <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addEmployeeModalLabel">Ajouter un employé</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="employeeForm">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="id">ID</label>
+                              <input type="text" class="form-control" id="id" name="id" required>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="nom">Nom</label>
+                              <input type="text" class="form-control" id="nom" name="nom" required>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="prenom">Prénom</label>
+                              <input type="text" class="form-control" id="prenom" name="prenom" required>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="genre">Genre</label>
+                              <select class="form-control" id="genre" name="genre" required>
+                                  <option value="M">M</option>
+                                  <option value="F">F</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="dateNaissance">Date de naissance</label>
+                              <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" required>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="telephone">Téléphone</label>
+                              <input type="text" class="form-control" id="telephone" name="telephone" required>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Adressee-mail">Adresse e-mail</label>
+                            <input type="text" class="form-control" id="Adressee-mail" name="Adressee-mail" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="Poste">Poste</label>
+                          <input type="text" class="form-control" id="Poste" name="Poste" required>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="Departement">Département</label>
+                          <input type="text" class="form-control" id="Departement" name="Departement" required>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Statutdemploi">Statut d'emploi</label>
+                        <select class="form-control" id="Statutdemploi" name="Statutdemploi" required>
+                            <option value="Temps plein">Temps plein</option>
+                            <option value="Temps partiel">Temps partiel</option>
+                            <option value="CDD">CDD</option>
+                            <option value="CDI">CDI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="Salaire">Salaire</label>
+                      <input type="text" class="form-control" id="Salaire" name="Salaire" required>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="CNSS">CNSS</label>
+                      <input type="text" class="form-control" id="CNSS" name="CNSS" required>
+                  </div>
+              </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Ajouter l'employé</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+              </form>
+          </div>
+          
+      
     </section>
     <script src="js/mainEmploye.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
