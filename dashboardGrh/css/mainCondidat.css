@@ -132,7 +132,6 @@ body.dark {
   width: 100%;
   background: var(--light);
   display: flex;
-  align-items: center;
   border-radius: 48px;
   font-size: 16px;
   color: var(--dark);
@@ -642,3 +641,21 @@ body.dark {
     flex-direction: column;
 
 }
+
+.table-data table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #cbcbcb; 
+}
+
+.table-data th, .table-data td {
+  padding: 8px;
+  border-bottom: 1px solid #ffffff;
+  text-align: left;
+}
+
+.table-data th {
+  background-color: #4caf50; 
+  color: white;
+}
+

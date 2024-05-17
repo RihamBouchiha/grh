@@ -47,8 +47,7 @@ body.dark {
   left: 0;
   background: var(--light);
   height: 100%;
-  width: 280px; 
-  min-width: 60px; 
+  width: 280px;
   z-index: 2000;
   font-family: var(--lato);
   transition: 0.3s ease;
@@ -56,14 +55,9 @@ body.dark {
   scrollbar-width: none;
 }
 
-
 .sidebar.hide {
   width: 60px;
 }
-.sidebar .top .nav-link {
-  display: flex;
-}
-
 
 .sidebar::-webkit-scrollbar {
   display: none;
@@ -86,7 +80,7 @@ body.dark {
 }
 
 .sidebar .logo i {
-  min-width: 0px;
+  min-width: 60px;
   display: flex;
   justify-content: center;
 }
@@ -132,9 +126,6 @@ body.dark {
   z-index: -1;
   box-shadow: 20px -20px 0 var(--grey);
 }
-.container {
-  margin-left: -45px; 
-}
 
 .sidebar .side-menu li a {
   height: 100%;
@@ -166,7 +157,7 @@ body.dark {
 }
 
 .sidebar .side-menu li a i {
-  min-width: calc(46px - ((4px + 6px) * 2));
+  min-width: calc(60px - ((4px + 6px) * 2));
   display: flex;
   justify-content: center;
 }

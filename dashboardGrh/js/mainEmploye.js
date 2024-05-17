@@ -54,16 +54,10 @@ if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
 
-// Ajoutez une fonction pour traiter le formulaire lorsqu'il est soumis
 document.getElementById('employeeForm').addEventListener('submit', function(e) {
-  e.preventDefault(); // Empêche la soumission du formulaire
-
-  // Récupérez les valeurs des champs du formulaire
+  e.preventDefault(); 
   var id = document.getElementById('id').value;
   var nom = document.getElementById('nom').value;
-  // Récupérez les autres valeurs de la même manière ...
-
-  // Créez une nouvelle ligne pour le tableau
   var newRow = document.createElement('tr');
   newRow.innerHTML = `
     <td>${id}</td>
@@ -88,3 +82,15 @@ document.getElementById('employeeForm').addEventListener('submit', function(e) {
 
   document.getElementById('employeeForm').reset();
 });
+const deleteButtons = document.querySelectorAll('.btn-danger');
+
+deleteButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const isConfirmed = confirm("Êtes-vous sûr de vouloir supprimer cette ligne?");
+        if (isConfirmed) {
+            const row = this.closest('tr');
+            row.remove();
+        }
+    });
+});
+
