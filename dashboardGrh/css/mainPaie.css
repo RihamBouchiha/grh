@@ -101,7 +101,7 @@ body.dark {
 .sidebar .side-menu li.active {
   position: relative;
   background: var(--grey);
-}
+} 
 
 .sidebar .side-menu li.active::before {
   content: "";
@@ -132,7 +132,7 @@ body.dark {
   width: 100%;
   background: var(--light);
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   border-radius: 48px;
   font-size: 16px;
   color: var(--dark);

@@ -8,7 +8,8 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="css/mainDashboard.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mainPaie.css"/>
     <link rel="website icon" type="png" href="img/image.png">
   </head>
   <body>
@@ -115,11 +116,82 @@
               </li>
             </ul>
           </div>
+        </div>
 
-          
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Rechercher un employé</h5>
+                  <form id="searchForm">
+                    <div class="form-group">
+                      <label for="employeeId">Saisissez l'ID de l'employé</label>
+                      <input type="text" class="form-control" id="employeeId" placeholder="Entrez l'ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Rechercher</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-data mt-4">
+          <div class="order">
+            <div class="head">
+              <h3>employés</h3>
+              <i class="fas fa-search"></i>
+              <i class="fas fa-filter"></i>
+            </div>
+  
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Employé</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p>Employé</p>
+                  </td>
+                  <td>07-05-2023</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Employé</p>
+                  </td>
+                  <td>07-05-2023</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Employé</p>
+                  </td>
+                  <td>07-05-2023</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Employé</p>
+                  </td>
+                  <td>07-05-2023</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Employé</p>
+                  </td>
+                  <td>07-05-2023</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </main>
     </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/mainPaie.js"></script>
-    
   </body>
 </html>
