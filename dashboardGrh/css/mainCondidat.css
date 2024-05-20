@@ -89,10 +89,10 @@ body.dark {
   width: 100%;
   margin-top: 48px;
 }
-
+/*probleme de sidebar*/
 .sidebar .side-menu li {
   height: 48px;
-  margin-left: 6px;
+  margin-left: -10px;
   background: transparent;
   border-radius: 48px 0 0 48px;
   padding: 4px;
