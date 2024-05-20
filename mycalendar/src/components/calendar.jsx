@@ -7,7 +7,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 function Calendar() {
   const [afficherFormulaire, setAfficherFormulaire] = useState(false);
 
-  const [formData, setFormData] = useState({ id: '', nom: '', prenom: '', debut: '', fin: '' });
+  const [formData, setFormData] = useState({nom: '', prenom: '', debut: '', fin: '' });
   const [conges, setConges] = useState([]);
 
   const handleChange = (e) => {
@@ -23,7 +23,7 @@ function Calendar() {
       end: formData.fin
     };
     setConges([...conges, nouveauConge]);
-    setFormData({ id: '', nom: '', prenom: '', debut: '', fin: '' });
+    setFormData({nom: '', prenom: '', debut: '', fin: '' });
     setAfficherFormulaire(false);
   };
 
@@ -33,13 +33,12 @@ function Calendar() {
 
   return (
     <div>
-      {/* Affichage du bouton "Ajouter Congé" */}
       {!afficherFormulaire && (
         <button
           type="button"
           onClick={handleAfficherFormulaire}
           style={{
-            backgroundColor: '#007bff',
+            backgroundColor: '#081531',
             color: 'white',
             padding: '10px 20px',
             borderRadius: '5px',
@@ -51,7 +50,6 @@ function Calendar() {
         </button>
       )}
 
-      {/* Affichage du formulaire si afficherFormulaire est vrai */}
       {afficherFormulaire && (
         <form>
           <label>ID:</label>
@@ -73,7 +71,6 @@ function Calendar() {
         </form>
       )}
 
-      {/* Affichage du calendrier */}
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
@@ -81,11 +78,11 @@ function Calendar() {
             {
                 start:'today prev,next',
                 center:'title',
-                end:'dayGridMonth,timeGridWeek',
+                end:'dayGridMonth,timeGridWeek,timeGridList',
             }
         }
         height={'90vh'}
-        events={conges} // Utilisation des congés saisis comme événements à afficher dans le calendrier
+        events={conges} 
       />
     </div>
   );
