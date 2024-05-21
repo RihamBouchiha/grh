@@ -1,0 +1,12 @@
+.modal-form-container {
+    position: relative;
+    width: 400px; /* Largeur du rectangle */
+    height: auto; /* La hauteur s'adaptera au contenu */
+    margin: 0 auto; /* Centrer horizontalement */
+    background-color: white; /* Fond blanc */
+    border: 2px solid white; /* Bordure blanche */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 30px; /* Marge intérieure */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  }
+  
