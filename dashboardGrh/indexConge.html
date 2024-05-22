@@ -8,8 +8,14 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="css/mainConge.css"/>
+    
     <link rel="website icon" type="png" href="img/image.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/mainConge.css"/>
+</head>
   </head>
   <body>
     <section class="sidebar">
@@ -115,17 +121,60 @@
               </li>
             </ul>
           </div>
-          <div id="root">
-
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>De la période</th>
+                  <th>À la période</th>
+                  <th class="actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>bouchiha</td>
+                  <td>riham</td>
+                  <td>20-06-2024</td>
+                  <td>20-07-2024</td>
+                  <td class="actions">
+                    <button class="btn btn-success btn-sm">Accepter</button>
+                    <button class="btn btn-danger btn-sm">Refuser</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>bouchiha</td>
+                  <td>riham</td>
+                  <td>20-06-2024</td>
+                  <td>20-07-2024</td>
+                  <td class="actions">
+                    <button class="btn btn-success btn-sm">Accepter</button>
+                    <button class="btn btn-danger btn-sm">Refuser</button>
+                  </td>
+                </tr>
+                <!-- Répétez pour les autres lignes -->
+              </tbody>
+            </table>
           </div>
-
-
-
-          
+        </div>
       </main>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const acceptButtons = document.querySelectorAll(".accept-btn");
+        acceptButtons.forEach(button => {
+          button.addEventListener("click", function() {
+            window.location.href = "/mycalendar/src/components/calendar.jsx"; // Remplacez par l'URL de votre page suivante
+          });
+        });
+      });
+    </script>
     <script src="js/mainConge.js" defer></script>
-    <script src="/mycalendar/src/components/"></script>
+    <script src="http://localhost:3000/"></script>
 
     
   </body>

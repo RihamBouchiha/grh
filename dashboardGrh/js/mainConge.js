@@ -53,3 +53,46 @@ window.addEventListener("resize", () => {
 if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const rootDiv = document.getElementById('root');
+  let tableHtml = `
+      <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>ID</th>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>De la période</th>
+                      <th>À la période</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+  `;
+
+  employees.forEach(emp => {
+      tableHtml += `
+          <tr>
+              <td>${emp.id}</td>
+              <td>${emp.nom}</td>
+              <td>${emp.prenom}</td>
+              <td>${emp.dePeriode}</td>
+              <td>${emp.aPeriode}</td>
+              <td>
+                  <button class="btn btn-success btn-sm">Accepter</button>
+                  <button class="btn btn-danger btn-sm">Refuser</button>
+              </td>
+          </tr>
+      `;
+  });
+
+  tableHtml += `
+              </tbody>
+          </table>
+      </div>
+  `;
+
+  rootDiv.innerHTML = tableHtml;
+});

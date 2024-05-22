@@ -53,3 +53,4 @@ window.addEventListener("resize", () => {
 if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
+

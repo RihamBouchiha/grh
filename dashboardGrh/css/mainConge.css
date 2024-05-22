@@ -132,7 +132,7 @@ body.dark {
   width: 100%;
   background: var(--light);
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   border-radius: 48px;
   font-size: 16px;
   color: var(--dark);
@@ -641,4 +641,8 @@ body.dark {
     margin-top: 2px;
     flex-direction: column;
 
+}
+
+.table th.actions, .table td.actions {
+  width: 180px; /* Ajustez cette valeur selon vos besoins */
 }

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rapports et analyses</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="css/mainRapport.css"/>
-    <link rel="website icon" type="png" href="img/image.png">
-  </head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapports et analyses</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/mainRapport.css"/>
+  <link rel="website icon" type="png" href="img/image.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Ajout de Chart.js -->
+</head>
+
   <body>
     <section class="sidebar">
       <a href="#" class="logo">
@@ -116,11 +116,16 @@
               </li>
             </ul>
           </div>
-
-          
+        </div>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
       </main>
+      
     </section>
     <script src="js/mainRapport.js" defer></script>
+    <script src="js/chart1.js" defer></script>
+
     
   </body>
 </html>
