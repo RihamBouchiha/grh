@@ -637,19 +637,21 @@ body.dark {
     flex-direction: column;
 }
 .text{
-    font-weight: 600;
+    font-weight: 200;
     margin-top: 2px;
     flex-direction: column;
 
 }
 .charts-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly; /* Ajustez la valeur en fonction de la disposition souhaitée */
   gap: 20px;
 }
 
 .chart-wrapper {
-  width: 45%; /* Ajustez cette valeur selon vos besoins */
+  width: 45%; /* Ajustez la valeur en fonction de la taille souhaitée */
+  max-width: 45%; /* Ajoutez cette règle pour définir une largeur maximale */
+  overflow: hidden; /* Ajoutez cette règle pour masquer le contenu en excès */
 }
 
 
