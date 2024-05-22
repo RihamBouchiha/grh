@@ -642,3 +642,14 @@ body.dark {
     flex-direction: column;
 
 }
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.chart-wrapper {
+  width: 45%; /* Ajustez cette valeur selon vos besoins */
+}
+
+

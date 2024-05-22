@@ -1,18 +1,23 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var ctx = document.getElementById('myChart').getContext('2d');
-      var data = {
-      labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet','Aout','Septembre','Octobre','Novembre','Decembre'],
+    const ctx = document.getElementById('myChart').getContext('2d');
+  
+    const data = {
+      labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
       datasets: [{
-        label: 'Nombre d\'employés',
-        data: [12, 19, 3, 5, 2, 3, 7,31,40,21,15,34],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 3
+        label: 'My First Dataset',
+        data: [11, 16, 7, 3, 14],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(75, 192, 192)',
+          'rgb(255, 205, 86)',
+          'rgb(201, 203, 207)',
+          'rgb(54, 162, 235)'
+        ]
       }]
     };
   
-    var config = {
-      type: 'bar', 
+    const config = {
+      type: 'polarArea',
       data: data,
       options: {
         scales: {
@@ -22,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     };
-      var myChart = new Chart(ctx, config);
+  
+    var myChart = new Chart(ctx, config);
   });
   
