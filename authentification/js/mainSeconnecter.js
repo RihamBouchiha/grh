@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
             password: password
         };
 
-        fetch('http://localhost:3002/seconnecter1', { // Change this URL to your server's URL
+        fetch('http://localhost:3002/seconnecter1', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,10 +33,12 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(data => {
             console.log('Success:', data);
+            window.location.href = '/dashboardGrh/indexDashboard.html';
         })
         .catch((error) => {
             console.error('Error:', error);
         });
     });
 });
+
 
