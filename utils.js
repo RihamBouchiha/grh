@@ -61,6 +61,7 @@ const userSchema = new mongoose.Schema({
     password: String
 });
 
+
 const User = mongoose.model('User', userSchema);
 //post pour inscription
 app.post('/signup', async (req, res) => {
@@ -92,6 +93,12 @@ app.post('/signup', async (req, res) => {
         }
     });
 });
+
+
+
+
+
+
 
 app.listen(port, () => {
     console.log(`Le serveur est en démarrage sur le port ${port}`);
