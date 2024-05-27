@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Redirection to indexSeconnecter.html on link click
     document.querySelectorAll("a[href='indexSeconnecter.html']").forEach(function(element) {
         element.addEventListener("click", function(event) {
             event.preventDefault(); 
             window.location.href = "indexSeconnecter.html"; 
         });
     });
-});
-document.addEventListener("DOMContentLoaded", function() {
+
+    // Login form submission
     document.getElementById("login-form").addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -18,7 +19,9 @@ document.addEventListener("DOMContentLoaded", function() {
             password: password
         };
 
-        fetch('http://localhost:3002/seconnecter1', {
+        console.log('Envoi des données de connexion :', data);
+
+        fetch('http://localhost:3003/Seconnecter', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,5 +43,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
-

@@ -641,3 +641,16 @@ body.dark {
     flex-direction: column;
 
 }
+.content main .table-data .order {
+  overflow-x: auto;
+}
+
+.content main .table-data .order table {
+  min-width: 100%;
+}
+
+.content main .table-data .order table th,
+.content main .table-data .order table td {
+  white-space: nowrap;
+}
+

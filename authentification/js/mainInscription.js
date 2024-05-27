@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Handler pour le lien de connexion
     const loginLink = document.getElementById("loginLink");
     if (loginLink) {
         loginLink.addEventListener("click", function(event) {
@@ -8,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Handler pour le formulaire d'inscription
     const form = document.getElementById("sign-up");
     if (form) {
         form.addEventListener("submit", function(event) {
@@ -38,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 confirm_password
             };
 
-            fetch('http://localhost:3002/signup', {
+            fetch('http://localhost:3002/inscription', { // Mettez à jour l'URL ici
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
