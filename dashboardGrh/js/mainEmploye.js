@@ -93,4 +93,29 @@ deleteButtons.forEach(button => {
         }
     });
 });
+document.getElementById('employeeForm').addEventListener('submit', function(e) {
+  e.preventDefault(); 
+
+  const formData = new FormData(this);
+  const employeeData = {};
+  formData.forEach((value, key) => {
+      employeeData[key] = value;
+  });
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/addEmployee');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 201) {
+              console.log('Employé ajouté avec succès');
+              document.getElementById('employeeForm').reset();
+          } else {
+              console.error('Erreur lors de l\'ajout de l\'employé');
+          }
+      }
+  };
+  xhr.send(JSON.stringify(employeeData));
+});
+
 
