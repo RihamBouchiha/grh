@@ -54,34 +54,6 @@ if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
 
-document.getElementById('employeeForm').addEventListener('submit', function(e) {
-  e.preventDefault(); 
-  var id = document.getElementById('id').value;
-  var nom = document.getElementById('nom').value;
-  var newRow = document.createElement('tr');
-  newRow.innerHTML = `
-    <td>${id}</td>
-    <td>${nom}</td>
-    <td>${document.getElementById('prenom').value}</td>
-    <td>${document.getElementById('genre').value}</td>
-    <td>${document.getElementById('dateNaissance').value}</td>
-    <td>${document.getElementById('telephone').value}</td>
-    <td>${document.getElementById('Adressee-mail').value}</td>
-    <td>${document.getElementById('Poste').value}</td>
-    <td>${document.getElementById('Departement').value}</td>
-    <td>${document.getElementById('Statutdemploi').value}</td>
-    <td>${document.getElementById('Salaire').value}</td>
-    <td>${document.getElementById('CNSS').value}</td>
-    <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></td>
-    <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
-  `;
-
-  document.querySelector('tbody').appendChild(newRow);
-
-  $('#addEmployeeModal').modal('hide');
-
-  document.getElementById('employeeForm').reset();
-});
 const deleteButtons = document.querySelectorAll('.btn-danger');
 
 deleteButtons.forEach(button => {
@@ -93,29 +65,27 @@ deleteButtons.forEach(button => {
         }
     });
 });
-document.getElementById('employeeForm').addEventListener('submit', function(e) {
-  e.preventDefault(); 
 
-  const formData = new FormData(this);
-  const employeeData = {};
+document.getElementById('employeeForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const jsonData = {};
   formData.forEach((value, key) => {
-      employeeData[key] = value;
+      jsonData[key] = value;
   });
 
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/addEmployee');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onreadystatechange = function() {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 201) {
-              console.log('Employé ajouté avec succès');
-              document.getElementById('employeeForm').reset();
-          } else {
-              console.error('Erreur lors de l\'ajout de l\'employé');
-          }
-      }
-  };
-  xhr.send(JSON.stringify(employeeData));
+  try {
+      const response = await fetch('http://localhost:3004/employees', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(jsonData)
+      });
+      const data = await response.json();
+      console.log('Employé ajouté:', data);
+  } catch (err) {
+      console.error('Erreur lors de l\'ajout de l\'employé:', err);
+  }
 });
-
 

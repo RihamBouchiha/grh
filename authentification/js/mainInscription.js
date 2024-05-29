@@ -6,56 +6,46 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "indexSeconnecter.html";
         });
     }
-
-    const form = document.getElementById("sign-up");
-    if (form) {
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const lastname = document.getElementById("lastname").value;
-            const firstname = document.getElementById("firstname").value;
-            const gender = document.getElementById("gender").value;
-            const birthdate = document.getElementById("birthdate").value;
-            const nationality = document.getElementById("nationality").value;
-            const phone_number = document.getElementById("phone_number").value;
-            const address = document.getElementById("address").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const confirm_password = document.getElementById("confirm_password").value;
-
-            const data = {
-                lastname,
-                firstname,
-                gender,
-                birthdate,
-                nationality,
-                phone_number,
-                address,
-                email,
-                password,
-                confirm_password
-            };
-
-            fetch('http://localhost:3002/inscription', { // Mettez à jour l'URL ici
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data);
-                window.location.href = "indexSeconnecter.html";
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        });
-    }
 });
+
+$(document).ready(function() {
+    // Capturer l'événement de soumission du formulaire d'inscription
+    $('#sign-up').submit(function(event) {
+        // Empêcher le comportement par défaut du formulaire
+        event.preventDefault();
+        
+        // Récupérer les données du formulaire
+        const formData = {
+            lastname: $('#lastname').val(),
+            firstname: $('#firstname').val(),
+            gender: $('#gender').val(),
+            birthdate: $('#birthdate').val(),
+            nationality: $('#nationality').val(),
+            phone_number: $('#phone_number').val(),
+            address: $('#address').val(),
+            email: $('#email').val(),
+            password: $('#password').val(),
+            confirm_password: $('#confirm_password').val()
+        };
+        
+        // Envoyer les données au serveur pour inscription
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:2003/inscription', // Modifier l'URL si nécessaire
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function(response) {
+                // Gérer la réponse du serveur
+                console.log(response);
+                // Rediriger l'utilisateur vers une page de confirmation, par exemple
+                window.location.href = "inscription_reussie.html";
+            },
+            error: function(xhr, status, error) {
+                // Gérer les erreurs de requête
+                console.error(error);
+                alert('Une erreur est survenue lors de l\'inscription');
+            }
+        });
+    });
+});
+

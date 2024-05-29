@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Redirection to indexSeconnecter.html on link click
     document.querySelectorAll("a[href='indexSeconnecter.html']").forEach(function(element) {
         element.addEventListener("click", function(event) {
             event.preventDefault(); 
@@ -7,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Login form submission
+    // login
     document.getElementById("login-form").addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -21,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         console.log('Envoi des données de connexion :', data);
 
-        fetch('http://localhost:3003/Seconnecter', {
+        fetch('http://localhost:2002/Seconnecter', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
