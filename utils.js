@@ -25,14 +25,11 @@ mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
         const { email, password } = req.body;
     
         try {
-            // Recherche de l'utilisateur dans la base de données par email
             const user = await User.findOne({ email });
     
             if (user) {
-                // Si l'utilisateur existe, tu peux rediriger vers une page spécifique
                 res.redirect('./dashboardGrh/indexDashboard');
             } else {
-                // Si l'utilisateur n'existe pas, affiche un message d'erreur
                 res.status(401).json({ error: 'Email ou mot de passe incorrect' });
             }
         } catch (error) {
