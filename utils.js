@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const User = require('./models/connexion'); 
 
 const app = express();
-const port = 2002;
+const port = 3010;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -21,19 +21,27 @@ mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
         console.error("Erreur de connexion à la base de données MongoDB :", err);
     });
 
-app.post('/Seconnecter', async (req, res) => {
-    const { email, password } = req.body;
-
-    try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const user = new User({ email, password: hashedPassword });
-        await user.save();
-        res.status(201).json({ message: 'Utilisateur créé avec succès', user });
-    } catch (error) {
-        console.error('Erreur lors de la création de l\'utilisateur :', error);
-        res.status(500).json({ error: 'Une erreur est survenue' });
-    }
-});
+    app.post('/Seconnecter', async (req, res) => {
+        const { email, password } = req.body;
+    
+        try {
+            // Recherche de l'utilisateur dans la base de données par email
+            const user = await User.findOne({ email });
+    
+            if (user) {
+                // Si l'utilisateur existe, tu peux rediriger vers une page spécifique
+                res.redirect('./dashboardGrh/indexDashboard');
+            } else {
+                // Si l'utilisateur n'existe pas, affiche un message d'erreur
+                res.status(401).json({ error: 'Email ou mot de passe incorrect' });
+            }
+        } catch (error) {
+            console.error('Erreur lors de la connexion de l\'utilisateur :', error);
+            res.status(500).json({ error: 'Une erreur est survenue' });
+        }
+    });
+    
+    
 
 app.listen(port, () => {
     console.log(`Le serveur est en cours d'exécution sur le port ${port}`);
