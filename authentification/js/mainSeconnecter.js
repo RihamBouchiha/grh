@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         console.log('Envoi des données de connexion :', data);
 
-        fetch('http://localhost:3010/Seconnecter', {
+        fetch('http://localhost:3011/Seconnecter', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

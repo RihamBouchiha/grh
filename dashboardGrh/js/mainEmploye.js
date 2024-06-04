@@ -54,20 +54,10 @@ if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
 
-const deleteButtons = document.querySelectorAll('.btn-danger');
-
-deleteButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const isConfirmed = confirm("Êtes-vous sûr de vouloir supprimer cette ligne?");
-        if (isConfirmed) {
-            const row = this.closest('tr');
-            row.remove();
-        }
-    });
-});
-
+//code cote client
 document.getElementById('employeeForm').addEventListener('submit', async (e) => {
   e.preventDefault();
+
   const formData = new FormData(e.target);
   const jsonData = {};
   formData.forEach((value, key) => {
@@ -75,17 +65,55 @@ document.getElementById('employeeForm').addEventListener('submit', async (e) => 
   });
 
   try {
-      const response = await fetch('http://localhost:3004/employees', {
+      const response = await fetch('http://localhost:3012/employees', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify(jsonData)
       });
-      const data = await response.json();
-      console.log('Employé ajouté:', data);
+
+      if (response.ok) {
+          const data = await response.json();
+          console.log('Employé ajouté:', data);
+
+          const table = document.querySelector('.table tbody');
+          const newRow = document.createElement('tr');
+
+          Object.values(data).forEach(value => {
+              const newCell = document.createElement('td');
+              newCell.textContent = value;
+              newRow.appendChild(newCell);
+          });
+
+          const modifyCell = document.createElement('td');
+          const deleteCell = document.createElement('td');
+
+          modifyCell.innerHTML = `<button class="btn btn-primary">Modifier</button>`;
+          deleteCell.innerHTML = `<button class="btn btn-danger">Supprimer</button>`;
+
+          newRow.appendChild(modifyCell);
+          newRow.appendChild(deleteCell);
+
+          table.appendChild(newRow);
+
+          deleteCell.querySelector('button').addEventListener('click', function() {
+              const isConfirmed = confirm("Êtes-vous sûr de vouloir supprimer cette ligne?");
+              if (isConfirmed) {
+                  const row = this.closest('tr');
+                  row.remove();
+              }
+          });
+
+      } else {
+          console.error('Erreur lors de l\'ajout de l\'employé:', response.statusText);
+      }
   } catch (err) {
       console.error('Erreur lors de l\'ajout de l\'employé:', err);
   }
 });
+
+
+
+
 
