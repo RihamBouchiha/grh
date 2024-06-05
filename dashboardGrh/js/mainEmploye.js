@@ -57,7 +57,7 @@ if (window.innerWidth < 768) {
 //code de get employe
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-      const response = await fetch('http://localhost:3015/employees');
+      const response = await fetch('http://localhost:3016/employees');
       const employees = await response.json();
 
       const tbody = document.querySelector('tbody');
@@ -95,6 +95,43 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   
 });
+const addEmployeeForm = document.getElementById('employeeForm');
+if (addEmployeeForm) {
+    addEmployeeForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+
+        // Récupérer les valeurs des champs du formulaire
+        const formData = new FormData(addEmployeeForm);
+        const employeeData = {};
+        formData.forEach((value, key) => {
+            employeeData[key] = value;
+        });
+
+        try {
+            // Envoyer une requête POST à votre backend avec les données du nouvel employé
+            const response = await fetch('http://localhost:3016/employees/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(employeeData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Erreur lors de l\'ajout de l\'employé');
+            }
+
+            // Rediriger l'utilisateur vers la page souhaitée après l'ajout réussi
+            window.location.href = 'indexEmploye.html';
+
+            // Fermer la modal d'ajout d'employé après l'ajout réussi
+            const addEmployeeModal = new bootstrap.Modal(document.getElementById('addEmployeeModal'));
+            addEmployeeModal.hide();
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout de l\'employé :', error);
+        }
+    });
+}
 
 
 
