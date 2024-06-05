@@ -6,7 +6,7 @@ const Employee = require('./models/employee');
 const Condidat = require('./models/condidat');
 
 const app = express();
-const port = 3014;
+const port = 3015;
 
 app.use(cors());
 app.use(express.json());
@@ -49,9 +49,17 @@ app.get('/employees', async (req, res) => {
         res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des employés' });
     }
 });
-
-
-
+//post employé 
+app.post('/employeees', async (req, res) => {
+    try {
+        const newEmployee = new Employee(req.body);
+        await newEmployee.save();
+        res.status(201).json({ message: 'Employé ajouté avec succès', employee: newEmployee });
+    } catch (error) {
+        console.error('Erreur lors de l\'ajout de l\'employé :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de l\'ajout de l\'employé' });
+    }
+});
 
 // GET candidats
 app.get('/condidats', async (req, res) => {

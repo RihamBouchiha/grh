@@ -5,7 +5,7 @@ const employeeSchema = new mongoose.Schema({
   nom: { type: String, required: true },
   prenom: { type: String, required: true },
   genre: { type: String, required: true },
-  dateNaissance: { type: String, required: true }, // Utiliser String au lieu de Date
+  dateNaissance: { type: Date, required: true }, 
   telephone: { type: String, required: true },
   adresseEmail: { type: String, required: true }, 
   poste: { type: String, required: true }, 

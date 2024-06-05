@@ -57,7 +57,7 @@ if (window.innerWidth < 768) {
 //code de get employe
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-      const response = await fetch('http://localhost:3014/employees');
+      const response = await fetch('http://localhost:3015/employees');
       const employees = await response.json();
 
       const tbody = document.querySelector('tbody');
@@ -66,22 +66,25 @@ document.addEventListener("DOMContentLoaded", async () => {
           return;
       }
 
-      tbody.innerHTML = ''; // Clear existing rows
+      tbody.innerHTML = '';
 
       employees.forEach(employee => {
           const row = document.createElement('tr');
+          const dateNaissance = new Date(employee.dateNaissance);
+          const formattedDate = `${dateNaissance.getDate()}/${dateNaissance.getMonth() + 1}/${dateNaissance.getFullYear()}`;
+
           row.innerHTML = `
               <td>${employee.id}</td>
               <td>${employee.nom}</td>
               <td>${employee.prenom}</td>
               <td>${employee.genre}</td>
-              <td>${employee.dateNaissance}</td>
+              <td>${formattedDate}</td>
               <td>${employee.telephone}</td>
-              <td>${employee['Adressee-mail']}</td>
-              <td>${employee.Poste}</td>
-              <td>${employee.Statutdemploi}</td>
-              <td>${employee.Salaire}</td>
-              <td>${employee.CNSS}</td>
+              <td>${employee['adresseEmail']}</td>
+              <td>${employee.poste}</td>
+              <td>${employee.statutEmploi}</td>
+              <td>${employee.salaire}</td>
+              <td>${employee.cnss}</td>
               <td><button class="btn btn-primary"><i class="fa-solid fa-pen"></i></button></td>
               <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
           `;
@@ -90,6 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
       console.error('Erreur lors de la récupération des employés :', error);
   }
+  
 });
 
 
