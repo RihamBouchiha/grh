@@ -54,64 +54,47 @@ if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
 
-//code cote client
-document.getElementById('employeeForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(e.target);
-  const jsonData = {};
-  formData.forEach((value, key) => {
-      jsonData[key] = value;
-  });
-
+//code de get employe
+document.addEventListener("DOMContentLoaded", async () => {
   try {
-      const response = await fetch('http://localhost:3012/employees', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(jsonData)
-      });
+      const response = await fetch('http://localhost:3014/employees');
+      const employees = await response.json();
 
-      if (response.ok) {
-          const data = await response.json();
-          console.log('Employé ajouté:', data);
-
-          const table = document.querySelector('.table tbody');
-          const newRow = document.createElement('tr');
-
-          Object.values(data).forEach(value => {
-              const newCell = document.createElement('td');
-              newCell.textContent = value;
-              newRow.appendChild(newCell);
-          });
-
-          const modifyCell = document.createElement('td');
-          const deleteCell = document.createElement('td');
-
-          modifyCell.innerHTML = `<button class="btn btn-primary">Modifier</button>`;
-          deleteCell.innerHTML = `<button class="btn btn-danger">Supprimer</button>`;
-
-          newRow.appendChild(modifyCell);
-          newRow.appendChild(deleteCell);
-
-          table.appendChild(newRow);
-
-          deleteCell.querySelector('button').addEventListener('click', function() {
-              const isConfirmed = confirm("Êtes-vous sûr de vouloir supprimer cette ligne?");
-              if (isConfirmed) {
-                  const row = this.closest('tr');
-                  row.remove();
-              }
-          });
-
-      } else {
-          console.error('Erreur lors de l\'ajout de l\'employé:', response.statusText);
+      const tbody = document.querySelector('tbody');
+      if (!tbody) {
+          console.error('Élément <tbody> introuvable');
+          return;
       }
-  } catch (err) {
-      console.error('Erreur lors de l\'ajout de l\'employé:', err);
+
+      tbody.innerHTML = ''; // Clear existing rows
+
+      employees.forEach(employee => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+              <td>${employee.id}</td>
+              <td>${employee.nom}</td>
+              <td>${employee.prenom}</td>
+              <td>${employee.genre}</td>
+              <td>${employee.dateNaissance}</td>
+              <td>${employee.telephone}</td>
+              <td>${employee['Adressee-mail']}</td>
+              <td>${employee.Poste}</td>
+              <td>${employee.Statutdemploi}</td>
+              <td>${employee.Salaire}</td>
+              <td>${employee.CNSS}</td>
+              <td><button class="btn btn-primary"><i class="fa-solid fa-pen"></i></button></td>
+              <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
+          `;
+          tbody.appendChild(row);
+      });
+  } catch (error) {
+      console.error('Erreur lors de la récupération des employés :', error);
   }
 });
+
+
+
+
 
 
 

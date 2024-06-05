@@ -1,16 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
 const User = require('./models/connexion');
-const Employee = require('./models/employee'); 
+const Employee = require('./models/employee');
+const Condidat = require('./models/condidat');
 
 const app = express();
-const port = 3012;
+const port = 3014;
 
 app.use(cors());
-app.use(express.json()); // Ajout de express.json() pour parser les données JSON
+app.use(express.json());
 
 const mongoUri = "mongodb+srv://rihambouchiha:Xaagi1260@riham.3lo32iv.mongodb.net/grh";
 
@@ -22,6 +21,7 @@ mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
         console.error("Erreur de connexion à la base de données MongoDB :", err);
     });
 
+// Connexion
 app.post('/Seconnecter', async (req, res) => {
     const { email, password } = req.body;
 
@@ -39,16 +39,28 @@ app.post('/Seconnecter', async (req, res) => {
     }
 });
 
-app.post('/employees', async (req, res) => {
-    const employeeData = req.body;
-
+// GET employés
+app.get('/employees', async (req, res) => {
     try {
-        const newEmployee = new Employee(employeeData);
-        await newEmployee.save();
-        res.status(201).json(newEmployee);
+        const employees = await Employee.find();
+        res.status(200).json(employees);
     } catch (error) {
-        console.error('Erreur lors de l\'ajout de l\'employé :', error);
-        res.status(500).json({ error: 'Une erreur est survenue lors de l\'ajout de l\'employé' });
+        console.error('Erreur lors de la récupération des employés :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des employés' });
+    }
+});
+
+
+
+
+// GET candidats
+app.get('/condidats', async (req, res) => {
+    try {
+        const condidats = await Condidat.find();
+        res.status(200).json(condidats);
+    } catch (error) {
+        console.error('Erreur lors de la récupération des candidats :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des candidats' });
     }
 });
 
