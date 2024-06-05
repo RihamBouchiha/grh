@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${employee.statutEmploi}</td>
             <td>${employee.salaire}</td>
             <td>${employee.cnss}</td>
-            <td><button class="btn btn-primary"><i class="fa-solid fa-pen"></i></button></td>
+            <td><button class="btn btn-primary edit-btn" data-employee-id="${employee.id}"><i class="fa-solid fa-pen"></i></button></td>
             <td><button class="btn btn-danger delete-btn" data-employee-id="${employee.id}"><i class="fa-solid fa-trash"></i></button></td>
         `;
         tbody.appendChild(row);
@@ -100,6 +100,65 @@ document.addEventListener("DOMContentLoaded", async () => {
             deleteId = button.getAttribute('data-employee-id');
             $('#deleteConfirmationModal').modal('show');
         });
+    });
+
+//put des employés 
+
+    document.querySelectorAll('.edit-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+          const row = btn.closest('tr');
+          const id = row.querySelector('td:nth-child(1)').innerText;
+          const nom = row.querySelector('td:nth-child(2)').innerText;
+          const prenom = row.querySelector('td:nth-child(3)').innerText;
+          const genre = row.querySelector('td:nth-child(4)').innerText;
+          const dateNaissance = row.querySelector('td:nth-child(5)').innerText;
+          const telephone = row.querySelector('td:nth-child(6)').innerText;
+          const adresseEmail = row.querySelector('td:nth-child(7)').innerText;
+          const poste = row.querySelector('td:nth-child(8)').innerText;
+          const statutEmploi = row.querySelector('td:nth-child(9)').innerText;
+          const salaire = row.querySelector('td:nth-child(10)').innerText;
+          const cnss = row.querySelector('td:nth-child(11)').innerText;
+    
+          document.getElementById('id').value = id;
+          document.getElementById('nom').value = nom;
+          document.getElementById('prenom').value = prenom;
+          document.getElementById('genre').value = genre;
+          document.getElementById('dateNaissance').value = dateNaissance;
+          document.getElementById('telephone').value = telephone;
+          document.getElementById('Adressee-mail').value = adresseEmail;
+          document.getElementById('Poste').value = poste;
+          document.getElementById('Statutdemploi').value = statutEmploi;
+          document.getElementById('Salaire').value = salaire;
+          document.getElementById('CNSS').value = cnss;
+    
+          document.getElementById('editEmployeeForm').addEventListener('submit', async (event) => {
+              event.preventDefault();
+    
+              const formData = new FormData(document.getElementById('editEmployeeForm'));
+              const employeeData = {};
+              formData.forEach((value, key) => {
+                  employeeData[key] = value;
+              });
+    
+              try {
+                  const response = await fetch(`http://localhost:3017/employees/update/${id}`, {
+                      method: 'PUT',
+                      headers: {
+                          'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(employeeData)
+                  });
+    
+                  if (!response.ok) {
+                      throw new Error('Erreur lors de la mise à jour de l\'employé');
+                  }
+    
+                  window.location.href = 'indexEmploye.html'; 
+              } catch (error) {
+                  console.error('Erreur lors de la mise à jour de l\'employé :', error);
+              }
+          });
+      });
     });
 
     document.getElementById('confirmDeleteButton').addEventListener('click', async () => {
@@ -160,6 +219,12 @@ if (addEmployeeForm) {
         }
     });
 }
+
+
+
+
+
+
 
 
 

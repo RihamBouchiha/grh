@@ -81,6 +81,25 @@ app.delete('/employees/delete/:id', async (req, res) => {
 });
 
 
+//update employé
+app.put('/employees/update/:id', async (req, res) => {
+    const employeeId = req.params.id;
+    const updatedEmployeeData = req.body;
+
+    try {
+        const updatedEmployee = await Employee.findOneAndUpdate({ id: employeeId }, updatedEmployeeData, { new: true });
+
+        if (!updatedEmployee) {
+            return res.status(404).json({ error: 'Employé non trouvé' });
+        }
+
+        res.status(200).json({ message: 'Données de l\'employé mises à jour avec succès', employee: updatedEmployee });
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour des données de l\'employé :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la mise à jour des données de l\'employé' });
+    }
+});
+
 
 // GET candidats
 app.get('/condidats', async (req, res) => {
