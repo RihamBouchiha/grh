@@ -57,7 +57,7 @@ if (window.innerWidth < 768) {
 //code de get employe
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-      const response = await fetch('http://localhost:3016/employees');
+      const response = await fetch('http://localhost:3017/employees');
       const employees = await response.json();
 
       const tbody = document.querySelector('tbody');
@@ -86,21 +86,46 @@ document.addEventListener("DOMContentLoaded", async () => {
               <td>${employee.salaire}</td>
               <td>${employee.cnss}</td>
               <td><button class="btn btn-primary"><i class="fa-solid fa-pen"></i></button></td>
-              <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></td>
+              <td><button class="btn btn-danger delete-btn" data-employee-id="${employee.id}"><i class="fa-solid fa-trash"></i>
+    </button>
+</td>
+
           `;
           tbody.appendChild(row);
       });
   } catch (error) {
       console.error('Erreur lors de la récupération des employés :', error);
   }
+
+  const deleteButtons = document.querySelectorAll('.delete-btn');
+  deleteButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+          const employeeId = button.getAttribute('data-employee-id');
+          try {
+              const response = await fetch(`http://localhost:3017/employees/delete/${employeeId}`, {
+                  method: 'DELETE'
+              });
+
+              if (!response.ok) {
+                  throw new Error('Erreur lors de la suppression de l\'employé');
+              }
+
+              window.location.href = 'indexEmploye.html';
+
+          } catch (error) {
+              console.error('Erreur lors de la suppression de l\'employé :', error);
+          }
+      });
+  });
   
 });
+
+//code pour post des employés 
 const addEmployeeForm = document.getElementById('employeeForm');
 if (addEmployeeForm) {
     addEmployeeForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+        event.preventDefault(); 
 
-        // Récupérer les valeurs des champs du formulaire
         const formData = new FormData(addEmployeeForm);
         const employeeData = {};
         formData.forEach((value, key) => {
@@ -108,8 +133,7 @@ if (addEmployeeForm) {
         });
 
         try {
-            // Envoyer une requête POST à votre backend avec les données du nouvel employé
-            const response = await fetch('http://localhost:3016/employees/add', {
+            const response = await fetch('http://localhost:3017/employees/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -121,10 +145,8 @@ if (addEmployeeForm) {
                 throw new Error('Erreur lors de l\'ajout de l\'employé');
             }
 
-            // Rediriger l'utilisateur vers la page souhaitée après l'ajout réussi
             window.location.href = 'indexEmploye.html';
 
-            // Fermer la modal d'ajout d'employé après l'ajout réussi
             const addEmployeeModal = new bootstrap.Modal(document.getElementById('addEmployeeModal'));
             addEmployeeModal.hide();
         } catch (error) {
@@ -132,6 +154,8 @@ if (addEmployeeForm) {
         }
     });
 }
+
+
 
 
 

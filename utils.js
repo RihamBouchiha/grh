@@ -6,10 +6,12 @@ const Employee = require('./models/employee');
 const Condidat = require('./models/condidat');
 
 const app = express();
-const port = 3016;
+const port = 3017;
 
 app.use(cors());
 app.use(express.json());
+
+
 
 const mongoUri = "mongodb+srv://rihambouchiha:Xaagi1260@riham.3lo32iv.mongodb.net/grh";
 
@@ -49,6 +51,7 @@ app.get('/employees', async (req, res) => {
         res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des employés' });
     }
 });
+
 //post employé 
 app.post('/employees/add', async (req, res) => {
     try {
@@ -60,6 +63,23 @@ app.post('/employees/add', async (req, res) => {
         res.status(500).json({ error: 'Une erreur est survenue lors de l\'ajout de l\'employé' });
     }
 });
+
+
+//delete employé
+app.delete('/employees/delete/:id', async (req, res) => {
+    const employeeId = req.params.id;
+    try {
+        const deletedEmployee = await Employee.findOneAndDelete({ id: employeeId });
+        if (!deletedEmployee) {
+            return res.status(404).json({ error: 'Employé non trouvé' });
+        }
+        res.status(200).json({ message: 'Employé supprimé avec succès' });
+    } catch (error) {
+        console.error('Erreur lors de la suppression de l\'employé :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la suppression de l\'employé' });
+    }
+});
+
 
 
 // GET candidats
