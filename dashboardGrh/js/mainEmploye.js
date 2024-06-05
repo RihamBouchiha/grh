@@ -57,68 +57,74 @@ if (window.innerWidth < 768) {
 //code de get employe
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-      const response = await fetch('http://localhost:3017/employees');
-      const employees = await response.json();
+    const response = await fetch('http://localhost:3017/employees');
+    const employees = await response.json();
 
-      const tbody = document.querySelector('tbody');
-      if (!tbody) {
-          console.error('Élément <tbody> introuvable');
-          return;
-      }
+    const tbody = document.querySelector('tbody');
+    if (!tbody) {
+        console.error('Élément <tbody> introuvable');
+        return;
+    }
 
-      tbody.innerHTML = '';
+    tbody.innerHTML = '';
 
-      employees.forEach(employee => {
-          const row = document.createElement('tr');
-          const dateNaissance = new Date(employee.dateNaissance);
-          const formattedDate = `${dateNaissance.getDate()}/${dateNaissance.getMonth() + 1}/${dateNaissance.getFullYear()}`;
+    employees.forEach(employee => {
+        const row = document.createElement('tr');
+        const dateNaissance = new Date(employee.dateNaissance);
+        const formattedDate = `${dateNaissance.getDate()}/${dateNaissance.getMonth() + 1}/${dateNaissance.getFullYear()}`;
 
-          row.innerHTML = `
-              <td>${employee.id}</td>
-              <td>${employee.nom}</td>
-              <td>${employee.prenom}</td>
-              <td>${employee.genre}</td>
-              <td>${formattedDate}</td>
-              <td>${employee.telephone}</td>
-              <td>${employee['adresseEmail']}</td>
-              <td>${employee.poste}</td>
-              <td>${employee.statutEmploi}</td>
-              <td>${employee.salaire}</td>
-              <td>${employee.cnss}</td>
-              <td><button class="btn btn-primary"><i class="fa-solid fa-pen"></i></button></td>
-              <td><button class="btn btn-danger delete-btn" data-employee-id="${employee.id}"><i class="fa-solid fa-trash"></i>
-    </button>
-</td>
+        row.innerHTML = `
+            <td>${employee.id}</td>
+            <td>${employee.nom}</td>
+            <td>${employee.prenom}</td>
+            <td>${employee.genre}</td>
+            <td>${formattedDate}</td>
+            <td>${employee.telephone}</td>
+            <td>${employee['adresseEmail']}</td>
+            <td>${employee.poste}</td>
+            <td>${employee.statutEmploi}</td>
+            <td>${employee.salaire}</td>
+            <td>${employee.cnss}</td>
+            <td><button class="btn btn-primary"><i class="fa-solid fa-pen"></i></button></td>
+            <td><button class="btn btn-danger delete-btn" data-employee-id="${employee.id}"><i class="fa-solid fa-trash"></i></button></td>
+        `;
+        tbody.appendChild(row);
+    });
 
-          `;
-          tbody.appendChild(row);
-      });
+    // Gérer les boutons de suppression
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    let deleteId; 
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            deleteId = button.getAttribute('data-employee-id');
+            $('#deleteConfirmationModal').modal('show');
+        });
+    });
+
+    document.getElementById('confirmDeleteButton').addEventListener('click', async () => {
+        try {
+            const response = await fetch(`http://localhost:3017/employees/delete/${deleteId}`, {
+                method: 'DELETE'
+            });
+
+            if (!response.ok) {
+                throw new Error('Erreur lors de la suppression de l\'employé');
+            }
+
+            window.location.href = 'indexEmploye.html';
+        } catch (error) {
+            console.error('Erreur lors de la suppression de l\'employé :', error);
+        } finally {
+            $('#deleteConfirmationModal').modal('hide');
+        }
+    });
+
   } catch (error) {
-      console.error('Erreur lors de la récupération des employés :', error);
+    console.error('Erreur lors de la récupération des employés :', error);
   }
-
-  const deleteButtons = document.querySelectorAll('.delete-btn');
-  deleteButtons.forEach(button => {
-      button.addEventListener('click', async () => {
-          const employeeId = button.getAttribute('data-employee-id');
-          try {
-              const response = await fetch(`http://localhost:3017/employees/delete/${employeeId}`, {
-                  method: 'DELETE'
-              });
-
-              if (!response.ok) {
-                  throw new Error('Erreur lors de la suppression de l\'employé');
-              }
-
-              window.location.href = 'indexEmploye.html';
-
-          } catch (error) {
-              console.error('Erreur lors de la suppression de l\'employé :', error);
-          }
-      });
-  });
-  
 });
+
 
 //code pour post des employés 
 const addEmployeeForm = document.getElementById('employeeForm');
