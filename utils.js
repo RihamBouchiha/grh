@@ -4,7 +4,7 @@ const cors = require('cors');
 const User = require('./models/connexion');
 const Employee = require('./models/employee');
 const Condidat = require('./models/condidat');
-
+const ToDoModel = require('./models/to-do');
 const app = express();
 const port = 3017;
 
@@ -135,5 +135,20 @@ app.get('/condidats/count', async (req, res) => {
         res.status(500).json({ error: 'Une erreur est survenue lors de la récupération du nombre de condidats' });
     }
 });
+
+// Route pour ajouter une tâche 
+app.post('/todos/add', async (req, res) => {
+    try {
+        const { task } = req.body;
+        const newTask = new ToDoModel({ task });
+        await newTask.save();
+        res.status(201).json({ message: 'Tâche ajoutée avec succès' });
+    } catch (error) {
+        console.error('Erreur lors de l\'ajout de la tâche :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de l\'ajout de la tâche' });
+    }
+});
+
+  
 
 

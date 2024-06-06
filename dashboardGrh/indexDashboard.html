@@ -89,10 +89,7 @@
         <input type="checkbox" hidden id="switch-mode" />
         <label for="switch-mode" class="switch-mode"></label>
 
-        <a href="#" class="notification">
-          <i class="fas fa-bell"></i>
-          <span class="num">28</span>
-        </a>
+        
 
         <a href="#" class="profile">
           <img src="img/img.png" alt="" />
@@ -114,10 +111,7 @@
             </ul>
           </div>
 
-          <a href="#" class="download-btn">
-            <i class="fas fa-cloud-download-alt"></i>
-            <span class="text">Télecharger rapport</span>
-          </a>
+         
         </div>
         <div class="box-info">
           <li>
@@ -128,7 +122,7 @@
             </span>
           </li>
           <li>
-            <i class="fas fa-people-group"></i>
+            <i class="fa-solid fa-user-tie"></i>
             <span class="text" id="numberOfEmployees">
                 <h3></h3>
                 <p>Employés</p>
@@ -203,18 +197,52 @@
                 <button type="button" class="btn btn-primary" id="showAlert">
                     <i class="fas fa-plus"></i>
                 </button>
-                <i class="fas fa-filter"></i>
+                
             </div>
             <div id="taskInputContainer" style="display: none;">
                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <form id="todoForm">
-                        <div class="form-group">
-                            <label for="taskInput">Nouvelle Tâche</label>
-                            <input type="text" class="form-control" id="taskInput" placeholder="Entrez votre nouvelle tâche">
-                        </div>
-                        <button type="button" class="btn btn-secondary" id="closeAlert">Fermer</button>
-                        <button type="submit" class="btn btn-primary" id="addTask">Ajouter</button>
-                    </form>
+                    <!-- Ajoutez un identifiant unique au formulaire -->
+<form id="todoForm">
+  <div class="form-group">
+      <label for="taskInput">Nouvelle Tâche</label>
+      <input type="text" class="form-control" id="taskInput" placeholder="Entrez votre nouvelle tâche">
+  </div>
+  <button type="button" class="btn btn-secondary" id="closeAlert">Fermer</button>
+  <button type="button" class="btn btn-primary" id="addTask">Ajouter</button>
+</form>
+
+<script>
+  document.getElementById('addTask').addEventListener('click', function() {
+      // Récupérer la valeur saisie dans le champ de texte
+      const task = document.getElementById('taskInput').value;
+
+      // Envoyer une requête POST au serveur avec les données du formulaire
+      fetch('/todos/add', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ task: task })
+      })
+      .then(response => {
+          if (response.ok) {
+              return response.json();
+          }
+          throw new Error('Erreur lors de l\'ajout de la tâche');
+      })
+      .then(data => {
+          // Afficher un message de succès ou effectuer toute autre action nécessaire
+          alert(data.message);
+          // Actualiser la liste des tâches si nécessaire
+      })
+      .catch(error => {
+          console.error('Erreur lors de l\'ajout de la tâche :', error);
+          // Afficher un message d'erreur à l'utilisateur ou effectuer toute autre action nécessaire
+          alert('Une erreur est survenue lors de l\'ajout de la tâche');
+      });
+  });
+</script>
+
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="closeAlertButton">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -223,6 +251,9 @@
             <ul class="todo-list">
             </ul>
         </div>
+        
+        
+        
         
         
           

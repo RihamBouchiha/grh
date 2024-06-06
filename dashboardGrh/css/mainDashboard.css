@@ -642,3 +642,8 @@ body.dark {
     flex-direction: column;
 
 }
+
+
+.completed {
+  text-decoration: line-through;
+}
