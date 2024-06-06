@@ -93,51 +93,88 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error('Erreur lors de la récupération du nombre de condidats :', error);
   }
 });
-
+/*
 //code todo list
 // Sélection des éléments
-const addButton = document.querySelector('.fa-plus');
-const todoList = document.querySelector('.todo-list');
+document.addEventListener('DOMContentLoaded', () => {
+  const addButton = document.querySelector('.fa-plus');
+  const todoList = document.querySelector('.todo-list');
 
-// Ajouter un événement click au bouton de plus
-addButton.addEventListener('click', () => {
-  // Afficher la zone de saisie
-  const inputField = document.createElement('input');
-  inputField.setAttribute('type', 'text');
-  inputField.classList.add('new-task');
-  
-  // Bouton pour ajouter la nouvelle tâche
-  const addButton = document.createElement('button');
-  addButton.textContent = 'Ajouter';
-  
-  // Ajouter un événement click au bouton d'ajout
   addButton.addEventListener('click', () => {
-    const inputValue = inputField.value;
-    if (inputValue.trim() !== '') {
-      // Créer un nouvel élément de liste avec le texte de la saisie
-      const newTask = document.createElement('li');
-      newTask.textContent = inputValue;
-      newTask.classList.add('not-completed');
-      
-      // Bouton pour marquer la tâche comme complétée
-      const completeButton = document.createElement('button');
-      completeButton.textContent = 'Complété';
-      completeButton.addEventListener('click', () => {
-        newTask.classList.toggle('completed');
-      });
-      
-      // Ajouter la tâche et le bouton de complétion à la liste
-      newTask.appendChild(completeButton);
-      todoList.appendChild(newTask);
-      
-      // Effacer la zone de saisie après l'ajout
-      inputField.value = '';
-    }
+    const inputGroup = document.createElement('div');
+    inputGroup.classList.add('input-group');
+
+    const inputField = document.createElement('input');
+    inputField.setAttribute('type', 'text');
+    inputField.classList.add('form-control');
+    inputField.classList.add('new-task');
+
+    const addButton = document.createElement('button');
+    addButton.textContent = 'Ajouter';
+    addButton.classList.add('btn');
+    addButton.classList.add('btn-primary');
+
+    addButton.addEventListener('click', () => {
+      const inputValue = inputField.value;
+      if (inputValue.trim() !== '') {
+        const newTask = document.createElement('li');
+        newTask.textContent = inputValue;
+        newTask.classList.add('not-completed');
+
+        const completeButton = document.createElement('button');
+        completeButton.textContent = 'Complété';
+        completeButton.classList.add('btn');
+        completeButton.classList.add('btn-success');
+
+        completeButton.addEventListener('click', () => {
+          newTask.classList.toggle('completed');
+        });
+
+        newTask.appendChild(completeButton);
+        todoList.appendChild(newTask);
+
+        inputField.value = '';
+      }
+    });
+
+    inputGroup.appendChild(inputField);
+    inputGroup.appendChild(addButton);
+    todoList.appendChild(inputGroup);
   });
-  
-  // Ajouter la zone de saisie et le bouton d'ajout à la page
-  todoList.appendChild(inputField);
-  todoList.appendChild(addButton);
+});*/
+document.addEventListener('DOMContentLoaded', function () {
+  const addButton = document.getElementById('addTask');
+
+  addButton.addEventListener('click', function (event) {
+      event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+      const taskInput = document.getElementById('taskInput');
+      const taskValue = taskInput.value.trim(); // Supprimez les espaces vides au début et à la fin
+
+      if (taskValue !== '') {
+          const newTaskItem = document.createElement('li');
+          newTaskItem.classList.add('not-completed');
+          newTaskItem.innerHTML = `
+              <p>${taskValue}</p>
+              <i class="fas fa-ellipsis-vertical"></i>
+          `;
+
+          const todoList = document.querySelector('.todo-list');
+          todoList.appendChild(newTaskItem);
+
+          taskInput.value = '';
+
+          document.getElementById('taskInputContainer').style.display = 'none';
+      }
+  });
+  document.getElementById('showAlert').addEventListener('click', function () {
+      document.getElementById('taskInputContainer').style.display = 'block';
+  });
+  document.getElementById('closeAlert').addEventListener('click', function () {
+      document.getElementById('taskInputContainer').style.display = 'none';
+  });
 });
+
+
 
 

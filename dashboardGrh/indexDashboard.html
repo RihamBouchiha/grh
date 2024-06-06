@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tableau de bord</title>
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/mainDashboard.css" />
     <link rel="website icon" type="png" href="img/img.png">
+    
     
     
   </head>
@@ -195,38 +199,37 @@
           </div>
           <div class="todo">
             <div class="head">
-              <h3>To do</h3>
-              <i class="fas fa-plus"></i>
-              <i class="fas fa-filter"></i>
+                <h3>To do list</h3>
+                <button type="button" class="btn btn-primary" id="showAlert">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <i class="fas fa-filter"></i>
             </div>
-
+            <div id="taskInputContainer" style="display: none;">
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <form id="todoForm">
+                        <div class="form-group">
+                            <label for="taskInput">Nouvelle Tâche</label>
+                            <input type="text" class="form-control" id="taskInput" placeholder="Entrez votre nouvelle tâche">
+                        </div>
+                        <button type="button" class="btn btn-secondary" id="closeAlert">Fermer</button>
+                        <button type="submit" class="btn btn-primary" id="addTask">Ajouter</button>
+                    </form>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="closeAlertButton">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
             <ul class="todo-list">
-              <li class="not-completed">
-                <p>Todo List</p>
-                <i class="fas fa-ellipsis-vertical"></i>
-              </li>
-              <li class="not-completed">
-                <p>Todo List</p>
-                <i class="fas fa-ellipsis-vertical"></i>
-              </li>
-              <li class="completed">
-                <p>Todo List</p>
-                <i class="fas fa-ellipsis-vertical"></i>
-              </li>
-              <li class="completed">
-                <p>Todo List</p>
-                <i class="fas fa-ellipsis-vertical"></i>
-              </li>
-              <li class="completed">
-                <p>Todo List</p>
-                <i class="fas fa-ellipsis-vertical"></i>
-              </li>
             </ul>
-          </div>
         </div>
+        
+        
+          
       </main>
     </section>
     <script src="js/mainDashboard.js" defer></script>
+    
     
   </body>
 </html>
