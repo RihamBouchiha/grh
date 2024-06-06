@@ -236,9 +236,115 @@
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
               </form>
           </div>
-          
-    </section>
+        </div>
+      </div>
+    </div>
     
+    <!-- Edit Employee Modal -->
+    <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editEmployeeModalLabel">Modifier un employé</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editEmployeeForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="edit-id">ID</label>
+                            <input type="text" class="form-control" id="edit-id" name="id" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="edit-nom">Nom</label>
+                            <input type="text" class="form-control" id="edit-nom" name="nom" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="edit-prenom">Prénom</label>
+                            <input type="text" class="form-control" id="edit-prenom" name="prenom" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="edit-genre">Genre</label>
+                            <select class="form-control" id="edit-genre" name="genre" required>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="edit-dateNaissance">Date de naissance</label>
+                          <input type="text" class="form-control" id="edit-dateNaissance" name="dateNaissance" placeholder="JJ/MM/AAAA" required>
+                      </div>
+                  </div>
+              
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="edit-telephone">Téléphone</label>
+                            <input type="text" class="form-control" id="edit-telephone" name="telephone" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="edit-adressee-mail">Adresse e-mail</label>
+                          <input type="text" class="form-control" id="edit-adressee-mail" name="adresseEmail" required>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="edit-poste">Poste</label>
+                        <input type="text" class="form-control" id="edit-poste" name="poste" required>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="edit-statutdemploi">Statut d'emploi</label>
+                      <select class="form-control" id="edit-statutdemploi" name="statutEmploi" required>
+                          <option value="Temps plein">Temps plein</option>
+                          <option value="Temps partiel">Temps partiel</option>
+                          <option value="CDD">CDD</option>
+                          <option value="CDI">CDI</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                    <label for="edit-salaire">Salaire</label>
+                    <input type="text" class="form-control" id="edit-salaire" name="salaire" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="edit-cnss">CNSS</label>
+                    <input type="text" class="form-control" id="edit-cnss" name="cnss" required>
+                </div>
+            </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
     <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
       <div class="modal-dialog">

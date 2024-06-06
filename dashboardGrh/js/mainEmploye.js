@@ -10,6 +10,7 @@ sideMenu.forEach((item) => {
   });
 });
 
+
 let menuBar = document.querySelector(".menu-btn");
 let sideBar = document.querySelector(".sidebar");
 menuBar.addEventListener("click", () => {
@@ -102,8 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
 
-//put des employés 
-
+    // Gestion des boutons de modification
     document.querySelectorAll('.edit-btn').forEach(btn => {
       btn.addEventListener('click', () => {
           const row = btn.closest('tr');
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           const nom = row.querySelector('td:nth-child(2)').innerText;
           const prenom = row.querySelector('td:nth-child(3)').innerText;
           const genre = row.querySelector('td:nth-child(4)').innerText;
-          const dateNaissance = row.querySelector('td:nth-child(5)').innerText;
+          const dateNaissance = row.querySelector('td:nth-child(5)').innerText.split('/').reverse().join('-');
           const telephone = row.querySelector('td:nth-child(6)').innerText;
           const adresseEmail = row.querySelector('td:nth-child(7)').innerText;
           const poste = row.querySelector('td:nth-child(8)').innerText;
@@ -119,48 +119,56 @@ document.addEventListener("DOMContentLoaded", async () => {
           const salaire = row.querySelector('td:nth-child(10)').innerText;
           const cnss = row.querySelector('td:nth-child(11)').innerText;
     
-          document.getElementById('id').value = id;
-          document.getElementById('nom').value = nom;
-          document.getElementById('prenom').value = prenom;
-          document.getElementById('genre').value = genre;
-          document.getElementById('dateNaissance').value = dateNaissance;
-          document.getElementById('telephone').value = telephone;
-          document.getElementById('Adressee-mail').value = adresseEmail;
-          document.getElementById('Poste').value = poste;
-          document.getElementById('Statutdemploi').value = statutEmploi;
-          document.getElementById('Salaire').value = salaire;
-          document.getElementById('CNSS').value = cnss;
+          document.getElementById('edit-id').value = id;
+          document.getElementById('edit-nom').value = nom;
+          document.getElementById('edit-prenom').value = prenom;
+          document.getElementById('edit-genre').value = genre;
+          document.getElementById('edit-dateNaissance').value = dateNaissance;
+          document.getElementById('edit-telephone').value = telephone;
+          document.getElementById('edit-adressee-mail').value = adresseEmail;
+          document.getElementById('edit-poste').value = poste;
+          document.getElementById('edit-statutdemploi').value = statutEmploi;
+          document.getElementById('edit-salaire').value = salaire;
+          document.getElementById('edit-cnss').value = cnss;
     
-          document.getElementById('editEmployeeForm').addEventListener('submit', async (event) => {
-              event.preventDefault();
-    
-              const formData = new FormData(document.getElementById('editEmployeeForm'));
-              const employeeData = {};
-              formData.forEach((value, key) => {
-                  employeeData[key] = value;
-              });
-    
-              try {
-                  const response = await fetch(`http://localhost:3017/employees/update/${id}`, {
-                      method: 'PUT',
-                      headers: {
-                          'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify(employeeData)
-                  });
-    
-                  if (!response.ok) {
-                      throw new Error('Erreur lors de la mise à jour de l\'employé');
-                  }
-    
-                  window.location.href = 'indexEmploye.html'; 
-              } catch (error) {
-                  console.error('Erreur lors de la mise à jour de l\'employé :', error);
-              }
-          });
+          $('#editEmployeeModal').modal('show');
       });
     });
 
+    // Soumission du formulaire de modification
+    document.getElementById('editEmployeeForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(document.getElementById('editEmployeeForm'));
+      const employeeData = {};
+      formData.forEach((value, key) => {
+          employeeData[key] = value;
+      });
+
+      const id = document.getElementById('edit-id').value;
+
+      try {
+          const response = await fetch(`http://localhost:3017/employees/update/${id}`, {
+              method: 'PUT',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(employeeData)
+          });
+
+          if (!response.ok) {
+              throw new Error('Erreur lors de la mise à jour de l\'employé');
+          }
+
+          window.location.href = 'indexEmploye.html'; 
+      } catch (error) {
+          console.error('Erreur lors de la mise à jour de l\'employé :', error);
+      } finally {
+          $('#editEmployeeModal').modal('hide');
+      }
+    });
+
+    // Suppression de l'employé
     document.getElementById('confirmDeleteButton').addEventListener('click', async () => {
         try {
             const response = await fetch(`http://localhost:3017/employees/delete/${deleteId}`, {
@@ -183,7 +191,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error('Erreur lors de la récupération des employés :', error);
   }
 });
-
 
 //code pour post des employés 
 const addEmployeeForm = document.getElementById('employeeForm');
@@ -220,19 +227,9 @@ if (addEmployeeForm) {
     });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Fonction pour formater la date au format YYYY-MM-DD
+function formatDate(dateStr) {
+  const [day, month, year] = dateStr.split('/');
+  return `${year}-${month}-${day}`;
+}
 
