@@ -100,18 +100,40 @@ app.put('/employees/update/:id', async (req, res) => {
     }
 });
 
-
-// GET candidats
-app.get('/condidats', async (req, res) => {
+// Route pour récupérer le nombre total d'employés
+app.get('/employees/count', async (req, res) => {
     try {
-        const condidats = await Condidat.find();
-        res.status(200).json(condidats);
+        const numberOfEmployees = await Employee.countDocuments();
+        res.status(200).json({ count: numberOfEmployees });
     } catch (error) {
-        console.error('Erreur lors de la récupération des candidats :', error);
-        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des candidats' });
+        console.error('Erreur lors de la récupération du nombre d\'employés :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération du nombre d\'employés' });
     }
 });
 
-app.listen(port, () => {
-    console.log(`Le serveur est en cours d'exécution sur le port ${port}`);
+
+// GET candidats
+// Route pour récupérer le nombre d'employés
+// GET nombre total de condidats
+app.get('/condidats/count', async (req, res) => {
+    try {
+        const numberOfCondidats = await Condidat.countDocuments();
+        res.status(200).json({ count: numberOfCondidats });
+    } catch (error) {
+        console.error('Erreur lors de la récupération du nombre de condidats :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération du nombre de condidats' });
+    }
 });
+// get condidats
+// GET nombre total de condidats
+app.get('/condidats/count', async (req, res) => {
+    try {
+        const numberOfCondidats = await Condidat.countDocuments();
+        res.status(200).json({ count: numberOfCondidats });
+    } catch (error) {
+        console.error('Erreur lors de la récupération du nombre de condidats :', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération du nombre de condidats' });
+    }
+});
+
+
