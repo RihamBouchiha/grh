@@ -117,7 +117,7 @@
           <li>
             <i class="fas fa-calendar-check"></i>
             <span class="text">
-              <h3>1</h3>
+              <h3></h3>
               <p>to do</p>
             </span>
           </li>
@@ -141,9 +141,8 @@
         <div class="table-data">
           <div class="order">
             <div class="head">
-              <h3>employés récents</h3>
-              <i class="fas fa-search"></i>
-              <i class="fas fa-filter"></i>
+              <h3>Condidats récents</h3>
+              
             </div>
 
             <table>
@@ -209,39 +208,10 @@
   </div>
   <button type="button" class="btn btn-secondary" id="closeAlert">Fermer</button>
   <button type="button" class="btn btn-primary" id="addTask">Ajouter</button>
+
 </form>
 
-<script>
-  document.getElementById('addTask').addEventListener('click', function() {
-      // Récupérer la valeur saisie dans le champ de texte
-      const task = document.getElementById('taskInput').value;
 
-      // Envoyer une requête POST au serveur avec les données du formulaire
-      fetch('/todos/add', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ task: task })
-      })
-      .then(response => {
-          if (response.ok) {
-              return response.json();
-          }
-          throw new Error('Erreur lors de l\'ajout de la tâche');
-      })
-      .then(data => {
-          // Afficher un message de succès ou effectuer toute autre action nécessaire
-          alert(data.message);
-          // Actualiser la liste des tâches si nécessaire
-      })
-      .catch(error => {
-          console.error('Erreur lors de l\'ajout de la tâche :', error);
-          // Afficher un message d'erreur à l'utilisateur ou effectuer toute autre action nécessaire
-          alert('Une erreur est survenue lors de l\'ajout de la tâche');
-      });
-  });
-</script>
 
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="closeAlertButton">
                         <span aria-hidden="true">&times;</span>
@@ -251,7 +221,32 @@
             <ul class="todo-list">
             </ul>
         </div>
+       <!--
+        <script>
+          document.addEventListener("DOMContentLoaded", async () => {
+            try {
+              const response = await fetch('http://localhost:3018/todos');
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              const tasks = await response.json();
+              displayTasks(tasks);
+            } catch (error) {
+              console.error('Erreur lors de la récupération des tâches :', error);
+            }
+          });
         
+          function displayTasks(tasks) {
+            const todoList = document.querySelector('.todo-list');
+            todoList.innerHTML = ''; 
+        
+            tasks.forEach(task => {
+              const taskItem = document.createElement('li');
+              taskItem.textContent = task.task; 
+              todoList.appendChild(taskItem);
+            });
+          }
+        </script>-->
         
         
         

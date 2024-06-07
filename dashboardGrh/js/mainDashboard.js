@@ -77,15 +77,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 //get condidats
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch('http://localhost:3018/condidats');
-    const condidats = await response.json();
+    const response = await fetch('http://localhost:3018/condidats/count');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 
-    const numberOfCondidats = condidats.length;
+    const data = await response.json();
+
+    const numberOfCondidats = data.count;
 
     const numberOfCondidatsElement = document.getElementById('numberOfCondidats');
     if (!numberOfCondidatsElement) {
-        console.error('Élément HTML introuvable');
-        return;
+      console.error('Élément HTML introuvable');
+      return;
     }
 
     numberOfCondidatsElement.querySelector('h3').textContent = numberOfCondidats;
@@ -93,6 +97,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error('Erreur lors de la récupération du nombre de condidats :', error);
   }
 });
+
+
+
 /*
 //code todo list
 // Sélection des éléments
@@ -174,6 +181,48 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('taskInputContainer').style.display = 'none';
   });
 });
+document.getElementById('addTask').addEventListener('click', async function (event) {
+  event.preventDefault();
+
+  const taskInput = document.getElementById('taskInput');
+  const taskValue = taskInput.value.trim(); 
+
+  if (taskValue !== '') {
+      try {
+          // Send a POST request to the backend to add the task
+          const response = await fetch('http://localhost:3018/todos/add', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ task: taskValue }) // Send task data in JSON format
+          });
+
+          if (response.ok) {
+              // If the task is successfully added on the server, add it to the frontend todo list
+              const newTaskItem = document.createElement('li');
+              newTaskItem.classList.add('not-completed');
+              newTaskItem.innerHTML = `
+                  <p>${taskValue}</p>
+                  <i class="fas fa-ellipsis-vertical"></i>
+              `;
+
+              const todoList = document.querySelector('.todo-list');
+              todoList.appendChild(newTaskItem);
+
+              taskInput.value = '';
+
+              // Hide the alert modal
+              document.getElementById('taskInputContainer').style.display = 'none';
+          } else {
+              console.error('Failed to add task:', response.statusText);
+          }
+      } catch (error) {
+          console.error('Error adding task:', error);
+      }
+  }
+});
+
 
 // Fonction pour ajouter une nouvelle tâche
 function ajouterTache() {
@@ -299,36 +348,57 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const addButton = document.getElementById('addTask');
 
-  addButton.addEventListener('click', async function (event) {
-    event.preventDefault();
 
-    const taskInput = document.getElementById('taskInput');
-    const taskValue = taskInput.value.trim(); 
-
-    if (taskValue !== '') {
-      try {
-        const response = await fetch('http://localhost:3018/todos/add', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ task: taskValue })
-        });
-
-        if (response.ok) {
-          // La tâche a été ajoutée avec succès
-          // Réactualiser la liste des tâches ou effectuer d'autres actions nécessaires
-        } else {
-          console.error('Erreur lors de l\'ajout de la tâche :', response.statusText);
-        }
-      } catch (error) {
-        console.error('Erreur lors de l\'ajout de la tâche :', error);
-      }
+// Fetch tasks from the backend and populate the todo list
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch('http://localhost:3018/todos');
+    if (!response.ok) {
+      throw new Error('Failed to fetch tasks');
     }
-  });
+
+    const tasks = await response.json();
+    const todoList = document.querySelector('.todo-list');
+
+    tasks.forEach(task => {
+      const newTaskItem = document.createElement('li');
+      newTaskItem.textContent = task.name; 
+      if (task.completed) {
+        newTaskItem.classList.add('completed');
+      }
+      todoList.appendChild(newTaskItem);
+    });
+  } catch (error) {
+    console.error('Error fetching tasks:', error);
+  }
 });
+
+// Function to add a new task
+
+
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('http://localhost:3018/todos/completed/count');
+    if (!response.ok) {
+      throw new Error('Failed to fetch count of completed tasks');
+    }
+
+    const data = await response.json();
+    const completedTasksCount = data.count;
+
+    const completedTasksElement = document.querySelector('.text h3');
+    if (completedTasksElement) {
+      completedTasksElement.textContent = completedTasksCount;
+    } else {
+      console.error('Element with class "text" or "h3" not found');
+    }
+  } catch (error) {
+    console.error('Error fetching count of completed tasks:', error);
+  }
+});
+
 
 

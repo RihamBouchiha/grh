@@ -4,7 +4,7 @@
         const User = require('./models/connexion');
         const Employee = require('./models/employee');
         const Condidat = require('./models/condidat');
-        const ToDoModel = require('./models/to-do');
+        const ToDoModel = require('./models/todo');
         const app = express();
         const port = 3018;
 
@@ -137,17 +137,50 @@
         });
 
         // Route pour ajouter une tâche 
-        app.post('/todos/add', async (req, res) => {
+        // Route pour ajouter une tâche 
+app.post('/todos/add', async (req, res) => {
+    try {
+      const { task } = req.body;
+      console.log('Received task:', task);
+
+      if (!task) {
+        return res.status(400).json({ error: 'Task is required' });
+      }
+      const newTask = new ToDoModel({ task, completed: false }); // Set completed to false by default
+      await newTask.save();
+      res.status(201).json({ message: 'Tâche ajoutée avec succès' });
+    } catch (error) {
+      console.error('Erreur lors de l\'ajout de la tâche :', error);
+      res.status(500).json({ error: 'Une erreur est survenue lors de l\'ajout de la tâche' });
+    }
+});
+
+        
+        
+
+        app.get('/todos', async (req, res) => {
             try {
-                const { task } = req.body;
-                const newTask = new ToDoModel({ task });
-                await newTask.save();
-                res.status(201).json({ message: 'Tâche ajoutée avec succès' });
+                const todos = await ToDoModel.find();
+                res.status(200).json(todos);
             } catch (error) {
-                console.error('Erreur lors de l\'ajout de la tâche :', error);
-                res.status(500).json({ error: 'Une erreur est survenue lors de l\'ajout de la tâche' });
+                console.error('Error fetching tasks:', error);
+                res.status(500).json({ error: 'An error occurred while fetching tasks' });
             }
         });
+
+
+        app.get('/todos/completed/count', async (req, res) => {
+            try {
+              const count = await ToDoModel.countDocuments({ completed: true });
+              res.status(200).json({ count });
+            } catch (error) {
+              console.error('Error fetching count of completed tasks:', error);
+              res.status(500).json({ error: 'An error occurred while fetching count of completed tasks' });
+            }
+          });
+          
+        
+
 
         
 

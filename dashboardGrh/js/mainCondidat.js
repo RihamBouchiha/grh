@@ -58,7 +58,7 @@ if (window.innerWidth < 768) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-      const response = await fetch('http://localhost:3017/condidats');
+      const response = await fetch('http://localhost:3018/condidats');
       const condidats = await response.json();
 
       const tbody = document.querySelector('tbody');
