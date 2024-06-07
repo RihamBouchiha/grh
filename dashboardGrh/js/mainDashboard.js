@@ -57,7 +57,7 @@ if (window.innerWidth < 768) {
 //get des employés 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch('http://localhost:3017/employees');
+    const response = await fetch('http://localhost:3018/employees');
     const employees = await response.json();
 
     const numberOfEmployees = employees.length;
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 //get condidats
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch('http://localhost:3017/condidats');
+    const response = await fetch('http://localhost:3018/condidats');
     const condidats = await response.json();
 
     const numberOfCondidats = condidats.length;
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (taskValue !== '') {
           try {
               // Effectuer une requête POST vers votre backend
-              const response = await fetch('http://localhost:3017/todos/add', {
+              const response = await fetch('http://localhost:3018/todos/add', {
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json'
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (taskValue !== '') {
       try {
-        const response = await fetch('http://localhost:3017/todos/add', {
+        const response = await fetch('http://localhost:3018/todos/add', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

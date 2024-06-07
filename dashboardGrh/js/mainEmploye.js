@@ -58,7 +58,7 @@ if (window.innerWidth < 768) {
 //code de get employe
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch('http://localhost:3017/employees');
+    const response = await fetch('http://localhost:3018/employees');
     const employees = await response.json();
 
     const tbody = document.querySelector('tbody');
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Gérer les boutons de suppression
-    const deleteButtons = document.querySelectorAll('.delete-btn');
+   const deleteButtons = document.querySelectorAll('.delete-btn');
     let deleteId; 
 
     deleteButtons.forEach(button => {
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const id = document.getElementById('edit-id').value;
 
       try {
-          const response = await fetch(`http://localhost:3017/employees/update/${id}`, {
+          const response = await fetch(`http://localhost:3018/employees/update/${id}`, {
               method: 'PUT',
               headers: {
                   'Content-Type': 'application/json'
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Suppression de l'employé
     document.getElementById('confirmDeleteButton').addEventListener('click', async () => {
         try {
-            const response = await fetch(`http://localhost:3017/employees/delete/${deleteId}`, {
+            const response = await fetch(`http://localhost:3018/employees/delete/${deleteId}`, {
                 method: 'DELETE'
             });
 
@@ -205,7 +205,7 @@ if (addEmployeeForm) {
         });
 
         try {
-            const response = await fetch('http://localhost:3017/employees/add', {
+            const response = await fetch('http://localhost:3018/employees/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
