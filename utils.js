@@ -218,6 +218,39 @@ app.get('/todos/completed/count', async (req, res) => {
 });
 
 
+
+
+app.delete('/supprimer-candidat/:nom/:prenom', async (req, res) => {
+    const nom = req.params.nom;
+    const prenom = req.params.prenom;
+  
+    // Logique pour supprimer le candidat avec nom et prénom donnés
+    try {
+      // Exemple avec Mongoose pour supprimer un candidat de la base de données
+      await Condidat.findOneAndDelete({ nom, prenom });
+  
+      res.status(200).json({ message: 'Candidat supprimé avec succès' });
+    } catch (error) {
+      console.error('Erreur lors de la suppression du candidat :', error);
+      res.status(500).json({ message: 'Erreur serveur lors de la suppression du candidat' });
+    }
+  });
+  
+
+  app.get('/api/employees/:id', async (req, res) => {
+    const id = req.params.id;
+  
+    try {
+      const employee = await Employee.findOne({ id: id });
+      if (!employee) {
+        return res.status(404).json({ message: "Employé non trouvé" });
+      }
+      res.json(employee);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: "Erreur serveur" });
+    }
+  });
           
         app.listen(port, () => {
             console.log(`Server is running on http://localhost:${port}`);

@@ -1,191 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestion de paie</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mainPaie.css"/>
-    <link rel="website icon" type="png" href="img/img.png">
-  </head>
-  <body>
-    <section class="sidebar">
-      <a href="#" class="logo">
-        <div class="image-text">
-        <img src="img/img.png" alt="logo"></div>
-        <span class="text">GUSTO RH</span>
-      </a>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de paie</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/mainPaie.css">
+  <link rel="icon" type="image/png" href="img/img.png">
+</head>
+<body>
+  <section class="sidebar">
+    <a href="#" class="logo">
+      <div class="image-text">
+        <img src="img/img1.png" alt="logo">
+      </div>
+      <span class="text">GUSTO RH</span>
+    </a>
 
-      <ul class="side-menu top">
-        <li>
-          <a href="indexDashboard.html" class="nav-link">
-            <i class="fa-solid fa-house"></i>
-            <span class="text">Tableau de bord</span>
-          </a>
-        </li>
-        <li>
-            <a href="indexEmploye.html" class="nav-link">
-              <i class="fa-solid fa-user-tie"></i>          
-               <span class="text">Gestion des employés</span>
-            </a>
-          </li>
-        <li>
-          <a href="indexCondidat.html" class="nav-link">
-            <i class="fa-solid fa-users"></i>            
-            <span class="text">Gestion des candidats</span>
-          </a>
-        </li>
-        <li class="active">
-            <a href="#" class="nav-link">
-                <i class="fa-solid fa-money-bill"></i>
-              <span class="text">Gestion de paie</span>
-            </a>
-          </li>
-        <li>
-          <a href="indexRapport.html" class="nav-link">
-            <i class="fa-solid fa-chart-pie"></i>
-             <span class="text">Analyses et rapports</span>
-          </a>
-        </li>
-        <li>
-          <a href="indexConge.html" class="nav-link">
-            <i class="fa-solid fa-business-time"></i>
-             <span class="text">Gestion des congés</span>
-          </a>
-        </li>
-      </ul>
-            <br><br><br><br><br><br><br>
-            
-      <ul class="side-menu">
-        <li>
-          <a href="#" class="logout">
-            <i class="fas fa-right-from-bracket"></i>
-            <span class="text">Se déconnecter</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="content">
-      <nav>
-        <i class="fas fa-bars menu-btn"></i>
-        <a href="#" class="nav-link">Categories</a>
-        <form action="#">
-          <div class="form-input">
-            <input type="search" placeholder="Rechercher..." />
-            <button class="search-btn">
-              <i class="fas fa-search search-icon"></i>
-            </button>
-          </div>
-        </form>
-
-        <input type="checkbox" hidden id="switch-mode" />
-        <label for="switch-mode" class="switch-mode"></label>
-
-        <a href="#" class="notification">
-          <i class="fas fa-bell"></i>
-          <span class="num">28</span>
+    <ul class="side-menu top">
+      <li>
+        <a href="indexDashboard.html" class="nav-link">
+          <i class="fa-solid fa-house"></i>
+          <span class="text">Tableau de bord</span>
         </a>
-
-        <a href="#" class="profile">
-          <img src="profile.png" alt="" />
+      </li>
+      <li>
+        <a href="indexEmploye.html" class="nav-link">
+          <i class="fa-solid fa-user-tie"></i>          
+          <span class="text">Gestion des employés</span>
         </a>
-      </nav>
+      </li>
+      <li>
+        <a href="indexCondidat.html" class="nav-link">
+          <i class="fa-solid fa-users"></i>            
+          <span class="text">Gestion des candidats</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-money-bill"></i>
+          <span class="text">Gestion de paie</span>
+        </a>
+      </li>
+      <li>
+        <a href="indexConge.html" class="nav-link">
+          <i class="fa-solid fa-business-time"></i>
+          <span class="text">Gestion des congés</span>
+        </a>
+      </li>
+    </ul>
+    <br><br><br><br><br><br><br>
+  </section>
 
-      <main>
-        <div class="head-title">
-          <div class="left">
-            <h1>Gestion de paie</h1>
-            <ul class="breadcrumb">
-              <li>
-                <a href="#">Tableau de bord</a>
-              </li>
-              <i class="fas fa-chevron-right"></i>
-              <li>
-                <a href="#" class="active">Gestion de paie</a>
-              </li>
-            </ul>
-          </div>
+  <section class="content">
+    <nav>
+      <i class="fas fa-bars menu-btn"></i>
+      <a href="#" class="nav-link">Categories</a>
+      <form action="#">
+        
+      </form>
+
+      <input type="checkbox" hidden id="switch-mode" />
+      <label for="switch-mode" class="switch-mode"></label>
+    </nav>
+
+    <main>
+      <div class="head-title">
+        <div class="left">
+          <h1>Gestion de paie</h1>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Tableau de bord</a>
+            </li>
+            <i class="fas fa-chevron-right"></i>
+            <li>
+              <a href="#" class="active">Gestion de paie</a>
+            </li>
+          </ul>
         </div>
+      </div>
 
-        <div class="container mt-4">
-          <div class="row">
-            <div class="col-md-6 offset-md-3">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Rechercher un employé</h5>
-                  <form id="searchForm">
-                    <div class="form-group">
-                      <label for="employeeId">Saisissez l'ID de l'employé</label>
-                      <input type="text" class="form-control" id="employeeId" placeholder="Entrez l'ID">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Rechercher</button>
-                  </form>
-                </div>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Rechercher un employé</h5>
+                <form id="searchForm">
+                  <div class="form-group">
+                    <label for="employeeId">Saisissez l'ID de l'employé</label>
+                    <input type="text" class="form-control" id="employeeId" placeholder="Entrez l'ID">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Rechercher</button>
+                </form>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="table-data mt-4">
-          <div class="order">
-            <div class="head">
-              <h3>employés</h3>
-              <i class="fas fa-search"></i>
-              <i class="fas fa-filter"></i>
+      <!-- Modal pour afficher les détails de l'employé -->
+      <div class="modal fade" id="employeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="employeeDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="employeeDetailsModalLabel">Détails de l'employé</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-  
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Employé</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <p>Employé</p>
-                  </td>
-                  <td>07-05-2023</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Employé</p>
-                  </td>
-                  <td>07-05-2023</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Employé</p>
-                  </td>
-                  <td>07-05-2023</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Employé</p>
-                  </td>
-                  <td>07-05-2023</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Employé</p>
-                  </td>
-                  <td>07-05-2023</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="modal-body" id="employeeDetails">
+              <!-- Les détails de l'employé seront affichés ici -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
           </div>
         </div>
-      </main>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/mainPaie.js" defer></script>
-  </body>
+      </div>
+
+    </main>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/mainPaie.js" defer></script>
+</body>
 </html>

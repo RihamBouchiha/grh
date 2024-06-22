@@ -647,7 +647,7 @@ body.dark {
 .table-data table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #cbcbcb; 
+  background-color: #eee9e9; 
 }
 
 .table-data th, .table-data td {

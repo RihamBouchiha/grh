@@ -1,132 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestion des candidats</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/mainCondidat.css"/>
-    <link rel="website icon" type="png" href="img/img.png">
-  </head>
-  <body>
-    <section class="sidebar">
-      <a href="#" class="logo">
-        <div class="image-text">
-        <img src="img/img.png" alt="logo"></div>
-        <span class="text">GUSTO RH</span>
-      </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestion des candidats</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/mainCondidat.css" />
+  <link rel="website icon" type="png" href="img/img.png">
+</head>
+<body>
+  <section class="sidebar">
+    <a href="#" class="logo">
+      <div class="image-text">
+        <img src="img/img1.png" alt="logo">
+      </div>
+      <span class="text">GUSTO RH</span>
+    </a>
 
-      <ul class="side-menu top">
-        <li>
-          <a href="indexDashboard.html" class="nav-link">
-            <i class="fa-solid fa-house"></i>
-            <span class="text">Tableau de bord</span>
-          </a>
-        </li>
-        <li>
-          <a href="indexEmploye.html" class="nav-link">
-            <i class="fa-solid fa-user-tie"></i>            
-            <span class="text">Gestion des employés</span>
-          </a>
-        </li>
-        <li class="active">
-            <a href="#" class="nav-link">
-                <i class="fa-solid fa-users"></i>
-              <span class="text">Gestion des candidats</span>
-            </a>
-          </li>
-        <li>
-          <a href="indexPaie.html" class="nav-link">
-            <i class="fa-solid fa-money-bill"></i>           
-             <span class="text">Gestion de paie</span>
-          </a>
-        </li>
-        <li>
-          <a href="indexRapport.html" class="nav-link">
-            <i class="fa-solid fa-chart-pie"></i>
-             <span class="text">Analyses et rapports</span>
-          </a>
-        </li>
-        <li>
-          <a href="indexConge.html" class="nav-link">
-            <i class="fa-solid fa-business-time"></i>
-             <span class="text">Gestion des congés</span>
-          </a>
-        </li>
-      </ul>
-            <br><br><br><br><br><br><br>
-            
-      
-    </section>
-
-    <section class="content">
-      <nav>
-        <i class="fas fa-bars menu-btn"></i>
-        <a href="#" class="nav-link">Categories</a>
-        <form action="#">
-          <div class="form-input">
-            <input type="search" placeholder="Rechercher..." />
-            <button class="search-btn">
-              <i class="fas fa-search search-icon"></i>
-            </button>
-          </div>
-        </form>
-
-        <input type="checkbox" hidden id="switch-mode" />
-        <label for="switch-mode" class="switch-mode"></label>
-
-        <a href="#" class="notification">
-          <i class="fas fa-bell"></i>
-          <span class="num">28</span>
+    <ul class="side-menu top">
+      <li>
+        <a href="indexDashboard.html" class="nav-link">
+          <i class="fa-solid fa-house"></i>
+          <span class="text">Tableau de bord</span>
         </a>
-
-        <a href="#" class="profile">
-          <img src="img/img.png" alt="" />
+      </li>
+      <li>
+        <a href="indexEmploye.html" class="nav-link">
+          <i class="fa-solid fa-user-tie"></i>            
+          <span class="text">Gestion des employés</span>
         </a>
-      </nav>
-
-      <main>
-        <div class="head-title">
-          <div class="left">
-            <h1>Gestion des candidats</h1>
-            <ul class="breadcrumb">
-              <li>
-                <a href="#">Tableau de bord</a>
-              </li>
-              <i class="fas fa-chevron-right"></i>
-              <li>
-                <a href="#" class="active">Gestion des candidats</a>
-              </li>
-            </ul>
-          </div>
-          <main>
-            <div class="table-data">
-                <h3>Liste des candidats</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Adresse mail</th>
-                            <th>Téléphone</th>
-                            <th>Statut Social</th>
-                            <th>Position Ciblée</th>
-                            <th>Accepter</th>
-                            <th>Refuser</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                  </tbody>
-  </table>
-  </div>    
-  </main>
+      </li>
+      <li class="active">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-users"></i>
+          <span class="text">Gestion des candidats</span>
+        </a>
+      </li>
+      <li>
+        <a href="indexPaie.html" class="nav-link">
+          <i class="fa-solid fa-money-bill"></i>           
+          <span class="text">Gestion de paie</span>
+        </a>
+      </li>
+      <li>
+        <a href="indexConge.html" class="nav-link">
+          <i class="fa-solid fa-business-time"></i>
+          <span class="text">Gestion des congés</span>
+        </a>
+      </li>
+    </ul>
+    <br><br><br><br><br><br><br>
   </section>
-    <script src="js/mainCondidat.js" defer></script>
-    
-  </body>
+
+  <section class="content">
+    <nav>
+      <i class="fas fa-bars menu-btn"></i>
+      <a href="#" class="nav-link">Categories</a>
+      <form id="globalSearchForm" action="#">
+        <div class="form-input">
+          <input id="globalSearchInput" type="search" placeholder="Rechercher..." />
+          <button class="search-btn">
+            <i class="fas fa-search search-icon"></i>
+          </button>
+        </div>
+      </form>
+      <input type="checkbox" hidden id="switch-mode" />
+      <label for="switch-mode" class="switch-mode"></label>
+    </nav>
+
+    <main>
+      <div class="head-title">
+        <div class="left">
+          <h1>Gestion des candidats</h1>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Tableau de bord</a>
+            </li>
+            <i class="fas fa-chevron-right"></i>
+            <li>
+              <a href="#" class="active">Gestion des candidats</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="table-data">
+        <h3>Liste des candidats</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Adresse mail</th>
+              <th>Téléphone</th>
+              <th>Statut Social</th>
+              <th>Position Ciblée</th>
+              <th>Accepter</th>
+              <th>Refuser</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Les lignes de candidats seront générées dynamiquement ici -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </section>
+
+  <!-- Modal Bootstrap pour confirmation -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Êtes-vous sûr de vouloir refuser ce candidat ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Confirmer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/mainCondidat.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
