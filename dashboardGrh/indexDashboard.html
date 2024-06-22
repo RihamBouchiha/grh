@@ -49,12 +49,6 @@
           </a>
         </li>
         <li>
-          <a href="indexRapport.html" class="nav-link">
-            <i class="fa-solid fa-chart-pie"></i>
-             <span class="text">Analyses et rapports</span>
-          </a>
-        </li>
-        <li>
           <a href="indexConge.html" class="nav-link">
             <i class="fa-solid fa-business-time"></i>
              <span class="text">Gestion des congés</span>
@@ -63,37 +57,74 @@
       </ul>
             <br><br><br><br><br><br><br><br><br><br>
             
-      <ul class="side-menu">
-        <li>
-          <a href="#" class="logout">
-            <i class="fas fa-right-from-bracket"></i>
-            <span class="text">Se déconnecter</span>
-          </a>
-        </li>
-      </ul>
+            <ul class="side-menu">
+              <li>
+                <a href="#" class="logout" id="logoutLink">
+                  <i class="fas fa-right-from-bracket"></i>
+                  <span class="text">Se déconnecter</span>
+                </a>
+              </li>
+            </ul>
     </section>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">Déconnexion</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Êtes-vous sûr de bien vouloir vous déconnecter ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-primary" id="confirmLogout">Se déconnecter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Script JavaScript pour gérer le clic sur le lien "Se déconnecter"
+      document.addEventListener('DOMContentLoaded', function () {
+        const logoutLink = document.getElementById('logoutLink');
+        const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+  
+        logoutLink.addEventListener('click', function (event) {
+          event.preventDefault(); // Empêche le lien de se comporter comme un lien normal
+  
+          // Affiche le modal de confirmation
+          logoutModal.show();
+        });
+  
+        // Gestion du clic sur le bouton "Se déconnecter" dans le modal
+        const confirmLogoutBtn = document.getElementById('confirmLogout');
+        confirmLogoutBtn.addEventListener('click', function () {
+          window.location.href = '/authentification/indexSeconnecter.html'; // Redirection vers la page de déconnexion
+        });
+      });
+    </script>
 
     <section class="content">
       <nav>
         <i class="fas fa-bars menu-btn"></i>
         <a href="#" class="nav-link">Categories</a>
-        <form action="#">
+        <form id="globalSearchForm">
           <div class="form-input">
-            <input type="search" placeholder="Rechercher..." />
-            <button class="search-btn">
-              <i class="fas fa-search search-icon"></i>
-            </button>
+              <input type="search" id="globalSearchInput" placeholder="Rechercher..." />
+              <button type="submit" class="search-btn">
+                  <i class="fas fa-search search-icon"></i>
+              </button>
           </div>
-        </form>
+      </form>
+      
 
         <input type="checkbox" hidden id="switch-mode" />
         <label for="switch-mode" class="switch-mode"></label>
-
-        
-
-        <a href="#" class="profile">
-          <img src="img/img.png" alt="" />
-        </a>
       </nav>
 
       <main>
@@ -117,10 +148,11 @@
           <li>
             <i class="fas fa-calendar-check"></i>
             <span class="text">
-              <h3></h3>
-              <p>to do</p>
+                <h3 id="completedTasksCount"></h3>
+                <p>To Do complet </p>
             </span>
-          </li>
+        </li>
+        
           <li>
             <i class="fa-solid fa-user-tie"></i>
             <span class="text" id="numberOfEmployees">
@@ -133,7 +165,7 @@
             <i class="fas fa-people-group"></i>
             <span class="text"  id="numberOfCondidats">
               <h3></h3>
-              <p>Condidats</p>
+              <p>Candidats</p>
             </span>
           </li>
         </div>
@@ -148,112 +180,78 @@
             <table>
               <thead>
                 <tr>
-                  <th>Condidat</th>
-                  <th>Date</th>
-                  <th>Statut</th>
+                  <th>Condidats</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <img src="img/img.png" alt="" />
-                    <p>nom Condidat</p>
-                  </td>
-                  <td>07-05-2023</td>
-                  <td><span class="status pending">en attente</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="img/img.png" alt="" />
-                    <p>nom Condidat</p>
-                  </td>
-                  <td>07-05-2023</td>
-                  <td><span class="status pending">en attente</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="img/img.png" alt="" />
-                    <p>nom Condidat</p>
-                  </td>
-                  <td>07-05-2023</td>
-                  <td><span class="status process">en cours</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="img/img.png" alt="" />
-                    <p>nom Condidat</p>
-                  </td>
-                  <td>07-05-2023</td>
-                  <td><span class="status process">en cours</span></td>
-                </tr>
-              
-              </tbody>
+              <tbody id="condidats-table">              </tbody>
             </table>
           </div>
+
           <div class="todo">
-            <div class="head">
-                <h3>To do list</h3>
-                <button type="button" class="btn btn-primary" id="showAlert">
-                    <i class="fas fa-plus"></i>
-                </button>
-                
-            </div>
-            <div id="taskInputContainer" style="display: none;">
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <!-- Ajoutez un identifiant unique au formulaire -->
-<form id="todoForm">
-  <div class="form-group">
-      <label for="taskInput">Nouvelle Tâche</label>
-      <input type="text" class="form-control" id="taskInput" placeholder="Entrez votre nouvelle tâche">
-  </div>
-  <button type="button" class="btn btn-secondary" id="closeAlert">Fermer</button>
-  <button type="button" class="btn btn-primary" id="addTask">Ajouter</button>
-
-</form>
-
-
-
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="closeAlertButton">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="head">
+        <h3>To do list</h3>
+        <button type="button" class="btn btn-primary" id="showAlert">
+            <i class="fas fa-plus"></i> Ajouter une tâche
+        </button>
+    </div>
+    <div id="taskInputContainer" style="display: none;">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <form id="todoForm">
+                <div class="form-group">
+                    <label for="taskInput">Nouvelle Tâche</label>
+                    <input type="text" class="form-control" id="taskInput" placeholder="Entrez votre nouvelle tâche">
                 </div>
-            </div>
-            <ul class="todo-list">
-            </ul>
+                <button type="button" class="btn btn-secondary" id="closeAlert">Fermer</button>
+                <button type="button" class="btn btn-primary" id="addTask">Ajouter</button>
+            </form>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="closeAlertButton">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-       <!--
-        <script>
-          document.addEventListener("DOMContentLoaded", async () => {
-            try {
-              const response = await fetch('http://localhost:3018/todos');
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              const tasks = await response.json();
-              displayTasks(tasks);
-            } catch (error) {
-              console.error('Erreur lors de la récupération des tâches :', error);
-            }
-          });
-        
-          function displayTasks(tasks) {
-            const todoList = document.querySelector('.todo-list');
-            todoList.innerHTML = ''; 
-        
-            tasks.forEach(task => {
-              const taskItem = document.createElement('li');
-              taskItem.textContent = task.task; 
-              todoList.appendChild(taskItem);
-            });
-          }
-        </script>-->
-        
-        
-        
-        
+    </div>
+
+    <ul class="todo-list">
+        <!-- Les tâches seront ajoutées ici dynamiquement -->
+    </ul>
+</div>
+
+
+
+            <ul class="todo-list">
+              <!-- Les tâches seront ajoutées ici dynamiquement -->
+          </ul>
           
+        </div>
+        
+        
+      
+        
+        
+        
+        
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+              fetch('http://localhost:3018/condidatss') // Assurez-vous d'utiliser le bon chemin
+                  .then(response => response.json())
+                  .then(condidats => {
+                      const tableBody = document.getElementById('condidats-table');
+                      condidats.forEach(condidat => {
+                          const row = document.createElement('tr');
+                          row.innerHTML = `
+                              <td>
+                                  <p>${condidat.nom} ${condidat.prenom}</p>
+                              </td>
+                              
+                          `;
+                          tableBody.appendChild(row);
+                      });
+                  })
+                  .catch(error => console.error('Erreur lors de la récupération des condidats:', error));
+          });
+      </script>
       </main>
     </section>
+    
     <script src="js/mainDashboard.js" defer></script>
     
     

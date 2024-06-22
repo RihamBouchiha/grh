@@ -26,21 +26,26 @@
         // Connexion
         app.post('/Seconnecter', async (req, res) => {
             const { email, password } = req.body;
-
+        
             try {
-                const user = await User.findOne({ email });
-
-                if (user) {
-                    res.redirect('./dashboardGrh/indexDashboard');
-                } else {
-                    res.status(401).json({ error: 'Email ou mot de passe incorrect' });
-                }
+                res.json({ success: true });
             } catch (error) {
-                console.error('Erreur lors de la connexion de l\'utilisateur :', error);
-                res.status(500).json({ error: 'Une erreur est survenue' });
+                console.error('Error during login:', error);
+                res.status(500).json({ error: 'An error occurred' });
             }
         });
+        
+//get candidats:  
 
+app.get('/condidatss', async (req, res) => {
+    try {
+        const condidats = await Condidat.find({}, 'nom prenom'); // Récupérer seulement nom et prenom
+        res.json(condidats);
+    } catch (err) {
+        console.error('Erreur lors de la récupération des condidats:', err);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des condidats.' });
+    }
+});
         // GET employés
         app.get('/employees', async (req, res) => {
             try {
@@ -125,6 +130,15 @@
             }
         });
         // get condidats
+        app.get('/condidats', async (req, res) => {
+            try {
+                const condidats = await Condidat.find();
+                res.json(condidats);
+            } catch (err) {
+                console.error('Erreur lors de la récupération des candidats :', err);
+                res.status(500).json({ message: 'Erreur serveur lors de la récupération des candidats' });
+            }
+        });
         // GET nombre total de condidats
         app.get('/condidats/count', async (req, res) => {
             try {
@@ -138,52 +152,73 @@
 
         // Route pour ajouter une tâche 
         // Route pour ajouter une tâche 
-app.post('/todos/add', async (req, res) => {
-    try {
-      const { task } = req.body;
-      console.log('Received task:', task);
-
-      if (!task) {
-        return res.status(400).json({ error: 'Task is required' });
-      }
-      const newTask = new ToDoModel({ task, completed: false }); // Set completed to false by default
-      await newTask.save();
-      res.status(201).json({ message: 'Tâche ajoutée avec succès' });
-    } catch (error) {
-      console.error('Erreur lors de l\'ajout de la tâche :', error);
-      res.status(500).json({ error: 'Une erreur est survenue lors de l\'ajout de la tâche' });
-    }
-});
-
+        app.post('/todos/add', async (req, res) => {
+            try {
+                const { task } = req.body;
+                if (!task) {
+                    return res.status(400).json({ error: 'Task is required' });
+                }
+                const newTask = new ToDoModel({ task, completed: false });
+                await newTask.save();
+                res.status(201).json(newTask);
+            } catch (error) {
+                console.error('Error adding task:', error);
+                res.status(500).json({ error: 'Failed to add task' });
+            }
+        });
+   
+        // Route pour marquer une tâche comme complétée ou non complétée
+        app.patch('/todos/:id/complete', async (req, res) => {
+            const taskId = req.params.id;
         
+            try {
+                const updatedTask = await ToDoModel.findByIdAndUpdate(taskId, { completed: req.body.completed }, { new: true });
         
-
+                if (!updatedTask) {
+                    return res.status(404).send({ error: 'Tâche non trouvée' });
+                }
+        
+                res.send(updatedTask);
+            } catch (error) {
+                console.error('Erreur lors de la mise à jour de la tâche :', error);
+                res.status(500).send({ error: 'Erreur serveur lors de la mise à jour de la tâche' });
+            }
+        });
+        
+        // Route pour récupérer toutes les tâches
         app.get('/todos', async (req, res) => {
             try {
                 const todos = await ToDoModel.find();
                 res.status(200).json(todos);
             } catch (error) {
                 console.error('Error fetching tasks:', error);
-                res.status(500).json({ error: 'An error occurred while fetching tasks' });
+                res.status(500).json({ error: 'Failed to fetch tasks' });
             }
         });
 
 
-        app.get('/todos/completed/count', async (req, res) => {
-            try {
-              const count = await ToDoModel.countDocuments({ completed: true });
-              res.status(200).json({ count });
-            } catch (error) {
-              console.error('Error fetching count of completed tasks:', error);
-              res.status(500).json({ error: 'An error occurred while fetching count of completed tasks' });
-            }
-          });
+
+
+
+
+
+
+
+
+        // Route pour obtenir le nombre de tâches complétées
+// Route pour compter le nombre de tâches complétées
+app.get('/todos/completed/count', async (req, res) => {
+    try {
+        const count = await ToDoModel.countDocuments({ completed: true });
+        res.status(200).json({ count });
+    } catch (error) {
+        console.error('Error fetching count of completed tasks:', error);
+        res.status(500).json({ error: 'An error occurred while fetching count of completed tasks' });
+    }
+});
+
+
           
-        
-
-
-        
-
         app.listen(port, () => {
             console.log(`Server is running on http://localhost:${port}`);
         });
