@@ -233,3 +233,30 @@ function formatDate(dateStr) {
   return `${year}-${month}-${day}`;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const globalSearchForm = document.getElementById('globalSearchForm');
+  const globalSearchInput = document.getElementById('globalSearchInput');
+
+  globalSearchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const searchTerm = globalSearchInput.value.trim().toLowerCase();
+
+      // Fonction de filtrage pour rechercher les éléments correspondants sur la page
+      const filterElements = (searchTerm) => {
+          const allElements = document.querySelectorAll('.table tbody tr'); // Sélectionnez les lignes de tableau appropriées ici
+          
+          allElements.forEach(element => {
+              const textElement = element.textContent.trim().toLowerCase();
+              if (textElement.includes(searchTerm)) {
+                  element.style.display = 'table-row';  // Affiche l'élément correspondant
+              } else {
+                  element.style.display = 'none';   // Masque l'élément qui ne correspond pas
+              }
+          });
+      };
+
+      filterElements(searchTerm);
+  });
+});
+
+
