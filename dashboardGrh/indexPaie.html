@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/mainPaie.css">
-  <link rel="icon" type="image/png" href="img/img.png">
+  <link rel="icon" type="image1/png" href="img/img.png">
 </head>
 <body>
   <section class="sidebar">
@@ -93,7 +93,7 @@
                     <label for="employeeId">Saisissez l'ID de l'employé</label>
                     <input type="text" class="form-control" id="employeeId" placeholder="Entrez l'ID">
                   </div>
-                  <button type="submit" class="btn btn-primary">Rechercher</button>
+                  <button type="submit" id="search-btn" class="btn btn-primary">Rechercher</button>
                 </form>
               </div>
             </div>
@@ -113,7 +113,37 @@
             </div>
             <div class="modal-body" id="employeeDetails">
               <!-- Les détails de l'employé seront affichés ici -->
+              <p><strong>Nom :</strong> <span id="empNom"></span></p>
+              <p><strong>Prénom :</strong> <span id="empPrenom"></span></p>
+              <p><strong>Salaire Brut :</strong> <span id="empSalaireBrut"></span></p>
+              <p><strong>Salaire Net :</strong> <span id="empSalaireNet"></span></p>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btnCalculateNetSalary">Calculer le salaire net</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal pour afficher le salaire net calculé -->
+      <div class="modal fade" id="netSalaryModal" tabindex="-1" role="dialog" aria-labelledby="netSalaryModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="netSalaryModalLabel">Salaire net de l'employé</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="employeeDetails">
+              <!-- Les détails de l'employé seront affichés ici -->
+              <p><strong>Nom :</strong> <span id="empNom"></span></p>
+              <p><strong>Prénom :</strong> <span id="empPrenom"></span></p>
+              <p><strong>Salaire Brut :</strong> <span id="empSalaireBrut"></span></p>
+              <p><strong>Salaire Net : </strong> <span id="empSalaireNet"></span></p>
+            </div>
+            
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
             </div>
@@ -127,6 +157,6 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="js/mainPaie.js" defer></script>
+  <script src="js/mainPaie.js"></script>
 </body>
 </html>

@@ -238,19 +238,20 @@ app.delete('/supprimer-candidat/:nom/:prenom', async (req, res) => {
   
 
   app.get('/api/employees/:id', async (req, res) => {
-    const id = req.params.id;
-  
+    const employeeId = req.params.id;
+    
     try {
-      const employee = await Employee.findOne({ id: id });
-      if (!employee) {
-        return res.status(404).json({ message: "Employé non trouvé" });
-      }
-      res.json(employee);
+        const employee = await Employee.findOne({ id: employeeId });
+        if (!employee) {
+            return res.status(404).send('Employee not found');
+        }
+        res.json(employee);
     } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: "Erreur serveur" });
+        console.error('Error finding employee:', err);
+        res.status(500).send('Internal Server Error');
     }
-  });
+});
+
           
         app.listen(port, () => {
             console.log(`Server is running on http://localhost:${port}`);
